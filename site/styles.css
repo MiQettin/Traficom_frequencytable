@@ -1,0 +1,42 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    padding-bottom: 50px;
+  }
+  
+  .controls {
+    margin-bottom: 10px;
+  }
+  
+  input {
+    padding: 5px;
+    width: 60%;
+    max-width: 300px;
+  }
+  
+  button {
+    padding: 6px 12px;
+    margin-left: 5px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f0f0f0;
+  }
+  
+  #status-message {
+    margin: 10px 0;
+    font-weight: bold;
+  }
+  
