@@ -1,12 +1,16 @@
 {
-    "page_title": "Home - Frequency Table",
-    "site_title": "Frequency Table",
-    "nav_home": "Home",
-    "nav_table": "Frequency Table",
-    "nav_about": "About",
-    "language_label": "Language",
-    "welcome_heading": "Welcome to the Frequency Allocation Tool",
-    "intro_text": "Browse the Traficom frequency table easily and quickly.",
-    "extra_info": "You can search for frequency ranges and services, and view their details."
-  }
+  "page_title": "Mirka Romppanen – RF Technician and Future ICT Engineer",
+  "meta_description": "Personal website of Mirka Romppanen – portfolio, RF tools, and frequency table viewer based on Traficom API.",
   
+  "site_title": "Frequency Table",
+  "language_label": "Language",
+  
+  "nav_home": "Home",
+  "nav_table": "Frequency Table",
+  "nav_about": "About",
+
+  "welcome_heading": "Welcome to the Frequency Table Service",
+  "intro_text": "Browse Traficom’s frequency allocation table quickly and easily.",
+  "extra_info": "You can search frequency ranges and services, and view detailed information.",
+  "info_text": "SITE UNDER CONSTRUCTION. PLEASE CHECK BACK LATER FOR UPDATES."
+}

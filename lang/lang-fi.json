@@ -1,12 +1,16 @@
 {
-    "page_title": "Etusivu - Taajuusjakotaulukko",
-    "site_title": "Taajuusjakotaulukko",
-    "nav_home": "Etusivu",
-    "nav_table": "Taajuustaulukko",
-    "nav_about": "Tietoa",
-    "language_label": "Kieli",
-    "welcome_heading": "Tervetuloa taajuusjakotaulukko-palveluun",
-    "intro_text": "Selaa Traficomin taajuusjakotaulukkoa helposti ja nopeasti.",
-    "extra_info": "Voit etsiä taajuusalueita ja palveluita, sekä tarkastella niiden tietoja."
-  }
+  "page_title": "Mirka Romppanen – RF-asentaja ja tuleva tieto- ja tietoliikennetekniikan insinööri",
+  "meta_description": "Mirka Romppasen henkilökohtainen verkkosivusto: portfolio, RF-työkalut ja Traficomin taajuustaulukon selainpohjainen käyttöliittymä.",
   
+  "site_title": "Taajuusjakotaulukko",
+  "language_label": "Kieli",
+  
+  "nav_home": "Etusivu",
+  "nav_table": "Taajuustaulukko",
+  "nav_about": "Tietoa",
+
+  "welcome_heading": "Tervetuloa taajuusjakotaulukko-palveluun",
+  "intro_text": "Selaa Traficomin taajuusjakotaulukkoa helposti ja nopeasti.",
+  "extra_info": "Voit etsiä taajuusalueita ja palveluita, sekä tarkastella niiden tietoja.",
+  "info_text": "SIVUA RAKENNETAAN. TARKISTA LOPPUTULOS MYÖHEMMIN ARVIOITU VALMISTUMINEN KEVÄT 2026."
+}
