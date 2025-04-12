@@ -1,8 +1,6 @@
 # Traficom_frequencytable
 Traficom JSON data for frequencies used in Finland
 
-# Taajuusdata Site
-
 This is a personal project with two main purposes:
 
 - 💼 To serve as a **portfolio** showcasing my skills in web development, data handling, and tech infrastructure
