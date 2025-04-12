@@ -3,30 +3,71 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Taajuusjakotaulukko</title>
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+  <title data-i18n="page_title">Etusivu - Taajuusjakotaulukko</title>
+  <title>Mirka Romppanen – RF-asentaja ja tuleva tieto-ja tietoliikennetekniikan insinööri</title>
+<meta name="description" content="Mirka Romppanen, henkilökohtainen verkkosivusto portfolioksi sekä RF-työkalut. Esittely, yhteystiedot ja Traficom API taajuustaulukko.">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script defer src="js/lang.js"></script>
 </head>
 <body>
-  <h1>Traficom Taajuusjakotaulukko</h1>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#" data-i18n="site_title">Taajuusjakotaulukko</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#" data-i18n="nav_home">Etusivu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="taajuustaulukko.html" data-i18n="nav_table">Taajuustaulukko</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#tietoa" data-i18n="nav_about">Tietoa</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              🌐 <span data-i18n="language_label">Kieli</span>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="languageDropdown">
+              <li><button class="dropdown-item" data-lang-switch="fi">🇫🇮 Suomi</button></li>
+              <li><button class="dropdown-item" data-lang-switch="en">🇬🇧 English</button></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
-  <div class="controls">
-    <input type="text" id="search" placeholder="Hae taajuusalueella..." />
-    <button id="search-button">Hae</button>
-    <button id="reset-button">Tyhjennä</button>
-  </div>
+  <!-- Main content -->
+  <main class="container my-5">
+    <div class="row">
+      <div class="col-lg-8">
+        <h1 data-i18n="welcome_heading">Tervetuloa taajuusjakotaulukko-palveluun</h1>
+        <p class="lead" data-i18n="intro_text">Selaa Traficomin taajuusjakotaulukkoa helposti ja nopeasti.</p>
+        <p data-i18n="extra_info">Voit etsiä taajuusalueita ja palveluita, sekä tarkastella niiden tietoja.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-8">
+        <h1 data-i18n="info_text">Tietoa</h1>
+      </div>
+    </div>
+  </main>
 
-  <p id="status-message">Ladataan dataa...</p>
+  <p class="text-muted" style="font-size: 0.9em;">
+    Taajuustiedot: <a href="https://tieto.traficom.fi/fi/tietotraficom/avoin-data?toggle=Taajuudet" target="_blank" rel="noopener noreferrer">
+    Liikenne- ja viestintävirasto Traficom</a>, lisenssi <a href="https://creativecommons.org/licenses/by/4.0/deed.fi" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.
+  </p>
+  
 
-  <table>
-    <thead>
-      <tr>
-        <th>Taajuusalue</th>
-        <th>Palvelu</th>
-        <th>Huomautukset</th>
-      </tr>
-    </thead>
-    <tbody id="table-body"></tbody>
-  </table>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
 </body>
 </html>

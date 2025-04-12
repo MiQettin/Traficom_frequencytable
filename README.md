@@ -14,7 +14,7 @@ This is a personal project with two main purposes:
 - Homepage: Overview and contact information
 - **RF Tools**: Searchable frequency allocation table
 - Deployed via GitHub Pages
-- Custom domain in use: `aallonpituudella.fi`
+- Custom domain in use: `aallonpituudella.fi` SITE UNDER CONSTRUCTION!
 
 ---
 
@@ -39,4 +39,4 @@ The goal of this project is to combine **practical RF field work**, **open data 
 
 ---
 
-> 🔗 [https://aallonpituudella.fi](https://aallonpituudella.fi)
+> 🔗 [https://aallonpituudella.fi](https://aallonpituudella.fi) SITE UNDER CONSTRUCTION!
