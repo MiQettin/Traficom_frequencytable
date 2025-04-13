@@ -15,7 +15,12 @@ function loadLanguage(lang) {
   document.documentElement.lang = lang;
 
   fetch(`../lang/lang-${lang}.json`)
-    .then(response => response.json())
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Käännöstiedostoa ei löytynyt");
+      }
+      return response.json();
+    })
     .then(translations => {
       for (const key in translations) {
         document.querySelectorAll(`[data-i18n="${key}"]`).forEach(el => {
@@ -23,10 +28,12 @@ function loadLanguage(lang) {
         });
       }
 
-      // 🔁 Päivitä <title> ja <meta> käännöksen jälkeen
+      // Päivitetään <title>
       if (translations.page_title) {
         document.title = translations.page_title;
       }
+
+      // Päivitetään <meta name="description">
       if (translations.meta_description) {
         const metaDesc = document.querySelector('meta[name="description"]');
         if (metaDesc) {

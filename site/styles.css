@@ -1,42 +1,106 @@
-body {
-    font-family: sans-serif;
-    margin: 20px;
-    padding-bottom: 50px;
+/* ====== Layout: body ja main ====== */
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/*Flexbox wrapperin sisään -> body erillään*/
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  padding: 2rem 1rem;
+}
+
+.content-section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* ====== Navigaatio ====== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1020;
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: flex-start; /* Tasaa kaiken vasemmalle */
+  align-items: center;
+  width: 100%;
+  padding: 0 15px;
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 30px;
+  margin: 0;  /* Poista kaikki marginaalit */
+  padding-left: 0; /* Poista mahdollinen padding */
+  text-align: left; /* Varmista tekstin tasaus */
+}
+
+@media (max-width: 768px) {
+  .navbar-nav {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
-  .controls {
-    margin-bottom: 10px;
-  }
-  
-  input {
-    padding: 5px;
-    width: 60%;
-    max-width: 300px;
-  }
-  
-  button {
-    padding: 6px 12px;
-    margin-left: 5px;
-  }
-  
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 10px;
-  }
-  
-  th, td {
-    border: 1px solid #ccc;
-    padding: 8px;
-    text-align: left;
-  }
-  
-  th {
-    background-color: #f0f0f0;
-  }
-  
-  #status-message {
-    margin: 10px 0;
-    font-weight: bold;
-  }
-  
+}
+
+/* ====== Hakukenttä ja napit ====== */
+.controls {
+  margin-bottom: 10px;
+}
+
+input {
+  padding: 5px;
+  width: 60%;
+  max-width: 300px;
+}
+
+button {
+  padding: 6px 12px;
+  margin-left: 5px;
+}
+
+/* ====== Taulukko ====== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f0f0f0;
+}
+
+/* ====== Viestit ja footer ====== */
+#status-message {
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+  margin-top: auto;
+  color: #007bff;
+  text-decoration: none;
+}

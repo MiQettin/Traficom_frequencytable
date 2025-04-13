@@ -3,8 +3,8 @@ Traficom JSON data for frequencies used in Finland
 
 This is a personal project with two main purposes:
 
-- 💼 To serve as a **portfolio** showcasing my skills in web development, data handling, and tech infrastructure
-- 📡 To provide **tools and frequency data for my work as an RF technician**, especially referencing the official frequency allocation table
+- To serve as a **portfolio** showcasing my skills in web development, data handling, and tech infrastructure
+- To provide **tools and frequency data for my work as an RF technician**, especially referencing the official frequency allocation table
 - To provide tools to others working with RF in Finland 
 
 ---
@@ -20,7 +20,7 @@ This is a personal project with two main purposes:
 
 ## 🛠️ Technologies
 
-- HTML5 + CSS3 + JavaScript
+- HTML5 (Flexbox, Bootstrap) + CSS3 + JavaScript
 - Git + GitHub Pages
 - Static JSON-based frequency data (updated manually when needed)
 - Custom domain connected to GitHub Pages

@@ -12,5 +12,7 @@
   "welcome_heading": "Welcome to the Frequency Table Service",
   "intro_text": "Browse Traficom’s frequency allocation table quickly and easily.",
   "extra_info": "You can search frequency ranges and services, and view detailed information.",
-  "info_text": "SITE UNDER CONSTRUCTION. PLEASE CHECK BACK LATER FOR UPDATES."
+  "info_text": "SITE UNDER CONSTRUCTION. PLEASE CHECK BACK LATER FOR UPDATES.",
+  "profession": "RF technician, future ICT engineer (student)",
+  "footer_license": "Frequency data: Finnish Transport and Communications Agency Traficom, licensed under CC BY 4.0."
 }
