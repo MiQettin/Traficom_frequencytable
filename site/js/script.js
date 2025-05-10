@@ -36,25 +36,24 @@ function renderTable(data) {
   });
 
   let html = "";
+
   for (const band in grouped) {
     const group = grouped[band];
+    const rowspan = group.length;
 
-    html += `
-      <tr class="table-primary fw-bold">
-        <td colspan="3">${band}</td>
-      </tr>
+    const bandInfo = `
+      <strong>${band}</strong><br>
+      <span class="text-muted">${group[0].Services_in_Finland || "-"}</span>
     `;
 
-    group.forEach(item => {
+    group.forEach((item, index) => {
       const subband = `${item.Sub_band_lower_limit} – ${item.Sub_band_upper_limit}`;
       const width = item.Sub_band_width ? ` (${item.Sub_band_width})` : "";
       const usage = item.Sub_band_usage || "";
-      const service = item.Services_in_Finland || "-";
 
-      const leftCol = `
-        <strong>${subband}${width}</strong><br>
-        ${usage}<br>
-        <span class="text-muted">${service}</span>
+      const subbandInfo = `
+        <p>${subband}${width}</p><br>
+        ${usage}
       `;
 
       const traffic = [
@@ -69,7 +68,8 @@ function renderTable(data) {
 
       html += `
         <tr>
-          <td>${leftCol}</td>
+          ${index === 0 ? `<td rowspan="${rowspan}" class="align-top">${bandInfo}</td>` : ""}
+          <td>${subbandInfo}</td>
           <td>${traffic}</td>
           <td>${note}</td>
         </tr>
@@ -79,6 +79,8 @@ function renderTable(data) {
 
   tableBody.innerHTML = html;
 }
+
+
 
 
 

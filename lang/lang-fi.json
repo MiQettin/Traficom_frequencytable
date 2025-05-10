@@ -17,9 +17,10 @@
   "status_success": "Datan haku onnistui!",
   "status_error": "Datan haku epäonnistui.",
 
-  "table_col1": "Taajuusalue ja osa-alueet (leveys)",
-  "table_col2": "Liikennemuoto / Lähetetiedot",
-  "table_col3": "Huomautukset",
+  "table_col1": "Taajuusalue ja käyttö Suomessa",
+  "table_col2": "Alikaista (leveys) ja käyttö",
+  "table_col3": "Liikennemuoto / Lähetetiedot",
+  "table_col4": "Huomautukset",
 
   "info_text": "Tietoa",
   "info_section_text": "Tämä palvelu hyödyntää Liikenne- ja viestintävirasto Traficomin avointa dataa radiotaajuuksista. Virallinen taajuusjako perustuu sääntelyyn, jota ohjaa <a href='https://www.traficom.fi/fi/saadokset/radiotaajuusmaarays-4' target='_blank' rel='noopener noreferrer'>Radiotaajuusmääräys 4</a>.",
