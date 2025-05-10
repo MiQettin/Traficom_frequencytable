@@ -3,7 +3,7 @@ html, body {
   height: 100%;
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background-color: black; /* Lila pohja */
+  background-color: black;
   color: #ffffff;
 }
 
@@ -11,16 +11,27 @@ html, body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 main {
   flex: 1;
-  padding: 2rem 1rem;
+  padding: 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 /* ===== Navigaatio ===== */
 .navbar {
   background-color: #4b3b70 !important;
+  width: 100%;
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .navbar .nav-link,
@@ -34,7 +45,7 @@ main {
   background-color: #6c59a1 !important;
 }
 
-/* ===== Dropdown: kielivalikko ja muut ===== */
+/* ===== Dropdown-valikko ===== */
 .dropdown-menu {
   background-color: #6c59a1;
   border: none;
@@ -50,7 +61,7 @@ main {
   color: #ffffff;
 }
 
-/* ===== Sisältö ja hakukenttä ===== */
+/* ===== Hakukenttä ja kontrollit ===== */
 .controls {
   display: flex;
   flex-wrap: wrap;
@@ -62,26 +73,7 @@ main {
 .controls select,
 .controls button {
   min-width: 120px;
-}
-
-.content-wrapper { 
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 5rem;
-  padding-right: 1rem;
-}
-
-@media (max-width: 576px) {
-  .controls {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .controls input,
-  .controls select,
-  .controls button {
-    width: 100% !important;
-  }
+  flex: 1;
 }
 
 /* ===== Taulukko ===== */
@@ -89,11 +81,8 @@ main {
   max-height: 66vh;
   overflow-y: auto;
   width: 100%;
-  margin: 0 auto;
-}
-
-.table-responsive {
-  overflow-y: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .table th {
@@ -104,18 +93,18 @@ main {
 .table td {
   background-color: #f8f9fa;
   color: #212529;
-}
-
-/* ===== Statusviesti ===== */
-#status-message {
-  font-weight: bold;
-  color: #ffc107; /* keltainen varoitusviesti */
+  vertical-align: top;
 }
 
 /* ===== Footer ===== */
 footer {
   background-color: #4b3b70;
   color: #ffffff;
+  width: 100%;
+  margin-top: auto;
+  max-width: 1320px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 footer a {
@@ -124,4 +113,54 @@ footer a {
 
 footer a:hover {
   color: #ffffff;
+}
+
+/* ===== Responsiivisuus (Mobile-first) ===== */
+@media (max-width: 576px) {
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  .table-wrapper {
+    width: 98%;
+    margin: 0 auto;
+  }
+
+  .table th,
+  .table td {
+    font-size: 0.875rem;
+    padding: 0.5rem;
+  }
+}
+
+/* MD-näytöt ja ylöspäin */
+@media (min-width: 768px) {
+  .controls input {
+    max-width: 200px;
+  }
+
+  .controls select {
+    max-width: 90px;
+  }
+
+  .controls button {
+    flex: unset;
+  }
+
+  main {
+    padding: 2rem 3rem;
+  }
+}
+
+/* LG-näytöt ja ylöspäin */
+@media (min-width: 992px) {
+  main {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
 }

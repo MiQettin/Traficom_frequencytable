@@ -11,7 +11,8 @@
   <script defer src="js/script.js"></script>
 </head>
 <body>
-  <div class="w-100 mx-auto px-3" style="max-width: 95vw; max-width: 1320px;"> <!-- Main content wrapperi, bootrapilla 100 + erilliset asetukset viewportille, jottei levii-->
+  
+ <!-- Main content wrapperi, bootrapilla 100 + erilliset asetukset viewportille, jottei levii-->
   <div id="wrapper">
     <!-- Sticky Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -45,7 +46,7 @@
         </div>
       </div>
     </nav>
-
+  <!--  <div class="container-fluid px-1 px-sm-3" style="max-width: 1320px;"> -->
     <!-- Main -->
     <main class="container-fluid my-4"> <!-- fluidin avulla annetaan koko näyttö käyttöön, tehdään width rajoitukset muualla!-->
         <section class="welcome-section">
@@ -62,8 +63,8 @@
               <option value="MHz">MHz</option>
               <option value="GHz">GHz</option>
             </select>
-            <button id="search-button" class="btn btn-primary">Hae</button>
-            <button id="reset-button" class="btn btn-secondary">Tyhjennä</button>
+            <button data-i18n="search-button" id="search-button" class="btn btn-primary">Hae</button>
+            <button data-i18n="reset-button" id="reset-button" class="btn btn-secondary">Tyhjennä</button>
             <p id="status-message">Ladataan dataa...</p> <!-- Heittää tänne js:stä info tekstit latauksesta, värit siellä -->
           </div>
         </div>
@@ -73,10 +74,10 @@
           <table class="table table-bordered">
             <thead>
               <tr>
-                <th data-i18n="table_col1">Taajuusalue<br>Käyttö Suomessa</th>
-                <th data-i18n="table_col2">Alikaista (leveys)<br>Käyttö</th>
-                <th data-i18n="table_col3">Liikennemuoto / Lähetetiedot</th>
-                <th data-i18n="table_col4">Huomautukset</th>
+                <th data-i18n="table_col1" class="w-25">Taajuusalue<br>Käyttö Suomessa</th>
+                <th data-i18n="table_col2" class="w-25">Alikaista (leveys)<br>Käyttö</th>
+                <th data-i18n="table_col3" class="w-25">Liikennemuoto / Lähetetiedot</th>
+                <th data-i18n="table_col4" class="w-25">Huomautukset</th>
               </tr>
             </thead>
             <tbody id="table-body"></tbody>

@@ -13,6 +13,9 @@
   "intro_text": "Selaa Traficomin taajuusjakotaulukkoa.",
   "extra_info": "Voit etsiä taajuusalueita ja palveluita, sekä tarkastella niiden tietoja.",
 
+  "search-button": "Hae",
+  "reset-button" : "Tyhjennä",
+
   "status_loading": "Ladataan dataa...",
   "status_success": "Datan haku onnistui!",
   "status_error": "Datan haku epäonnistui.",

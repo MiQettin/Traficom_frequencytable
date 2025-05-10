@@ -13,6 +13,9 @@
   "intro_text": "Browse Traficom’s frequency allocation table.",
   "extra_info": "You can search frequency ranges and services, and view detailed information.",
 
+  "search-button": "Search",
+  "reset-button" : "Empty",
+
   "status_loading": "Loading data...",
   "status_success": "Data loaded successfully!",
   "status_error": "Failed to load data.",
