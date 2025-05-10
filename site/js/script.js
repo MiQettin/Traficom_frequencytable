@@ -13,12 +13,13 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(json => {
       originalData = json.value; // tärkeä muutos!
       renderTable(originalData);
-      statusMessage.textContent = "Datan haku onnistui!";
+      statusMessage.textContent = window.translations?.status_success || "Datan haku onnistui!"; /* Haetaan kielitiedostosta globaalien muuttujien avulla -> Asetettu lang.js */
+ /* Haetaan kielitiedosta viestit */
       statusMessage.style.color = "red";
     })
     .catch(error => {
       console.error("Virhe haettaessa dataa:", error);
-      statusMessage.textContent = "Datan haku epäonnistui.";
+      statusMessage.textContent = window.translations?.status_error || "Datan haku epäonnistui.";
       statusMessage.style.color = "red";
     });
 

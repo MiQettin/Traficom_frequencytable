@@ -22,9 +22,13 @@ function loadLanguage(lang) {
       return response.json();
     })
     .then(translations => {
+      // Tee käännökset globaaleiksi
+      window.translations = translations;
+
+      // Aseta tekstit HTML-elementteihin
       for (const key in translations) {
         document.querySelectorAll(`[data-i18n="${key}"]`).forEach(el => {
-          el.textContent = translations[key];
+          el.innerHTML = translations[key]; // innerHTML mahdollistaa <a>-tagit tms.
         });
       }
 
