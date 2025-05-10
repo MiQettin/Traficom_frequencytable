@@ -1,18 +1,21 @@
 {
   "page_title": "Mirka Romppanen – RF Technician and Future ICT Engineer",
   "meta_description": "Personal website of Mirka Romppanen – portfolio, RF tools, and frequency table viewer based on Traficom API.",
-  
+
   "site_title": "Frequency Table",
   "language_label": "Language",
-  
+
   "nav_home": "Home",
   "nav_table": "Frequency Table",
   "nav_about": "About",
 
   "welcome_heading": "Welcome to the Frequency Table Service",
-  "intro_text": "Browse Traficom’s frequency allocation table quickly and easily.",
+  "intro_text": "Browse Traficom’s frequency allocation table.",
   "extra_info": "You can search frequency ranges and services, and view detailed information.",
-  "info_text": "SITE UNDER CONSTRUCTION. PLEASE CHECK BACK LATER FOR UPDATES.",
+
+  "info_text": "About",
+  "info_section_text": "This service uses open data from the Finnish Transport and Communications Agency Traficom. The official frequency allocation is regulated by the document known as <a href='https://www.traficom.fi/fi/saadokset/radiotaajuusmaarays-4' target='_blank' rel='noopener noreferrer'>Radio Frequency Regulation 4</a>.",
+
   "profession": "RF technician, future ICT engineer (student)",
   "footer_license": "Frequency data: Finnish Transport and Communications Agency Traficom, licensed under CC BY 4.0."
 }

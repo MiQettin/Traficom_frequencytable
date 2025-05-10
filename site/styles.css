@@ -1,11 +1,12 @@
-/* ====== Layout: body ja main ====== */
+/* ===== Layout ===== */
 html, body {
   height: 100%;
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: black; /* Lila pohja */
+  color: #ffffff;
 }
 
-/*Flexbox wrapperin sisään -> body erillään*/
 #wrapper {
   display: flex;
   flex-direction: column;
@@ -17,90 +18,110 @@ main {
   padding: 2rem 1rem;
 }
 
-.content-section {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-/* ====== Navigaatio ====== */
+/* ===== Navigaatio ===== */
 .navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1020;
+  background-color: #4b3b70 !important;
 }
 
-.navbar-container {
+.navbar .nav-link,
+.navbar-brand,
+.dropdown-item {
+  color: #ffffff !important;
+}
+
+.navbar .nav-link:hover,
+.dropdown-item:hover {
+  background-color: #6c59a1 !important;
+}
+
+/* ===== Dropdown: kielivalikko ja muut ===== */
+.dropdown-menu {
+  background-color: #6c59a1;
+  border: none;
+}
+
+.dropdown-menu .dropdown-item {
+  color: #ffffff;
+}
+
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .dropdown-item:focus {
+  background-color: #8265c0;
+  color: #ffffff;
+}
+
+/* ===== Sisältö ja hakukenttä ===== */
+.controls {
   display: flex;
-  justify-content: flex-start; /* Tasaa kaiken vasemmalle */
-  align-items: center;
-  width: 100%;
-  padding: 0 15px;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-.navbar-nav {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 30px;
-  margin: 0;  /* Poista kaikki marginaalit */
-  padding-left: 0; /* Poista mahdollinen padding */
-  text-align: left; /* Varmista tekstin tasaus */
+.controls input,
+.controls select,
+.controls button {
+  min-width: 120px;
 }
 
-@media (max-width: 768px) {
-  .navbar-nav {
+.content-wrapper { 
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 5rem;
+  padding-right: 1rem;
+}
+
+@media (max-width: 576px) {
+  .controls {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+  }
+
+  .controls input,
+  .controls select,
+  .controls button {
+    width: 100% !important;
   }
 }
 
-/* ====== Hakukenttä ja napit ====== */
-.controls {
-  margin-bottom: 10px;
-}
-
-input {
-  padding: 5px;
-  width: 60%;
-  max-width: 300px;
-}
-
-button {
-  padding: 6px 12px;
-  margin-left: 5px;
-}
-
-/* ====== Taulukko ====== */
-table {
+/* ===== Taulukko ===== */
+.table-wrapper {
+  max-height: 66vh;
+  overflow-y: auto;
   width: 100%;
-  border-collapse: collapse;
-  margin-top: 10px;
+  margin: 0 auto;
 }
 
-th, td {
-  border: 1px solid #ccc;
-  padding: 8px;
-  text-align: left;
+.table-responsive {
+  overflow-y: auto;
 }
 
-th {
-  background-color: #f0f0f0;
+.table th {
+  background-color: #6c59a1;
+  color: #ffffff;
 }
 
-/* ====== Viestit ja footer ====== */
+.table td {
+  background-color: #f8f9fa;
+  color: #212529;
+}
+
+/* ===== Statusviesti ===== */
 #status-message {
-  margin: 10px 0;
   font-weight: bold;
+  color: #ffc107; /* keltainen varoitusviesti */
 }
 
-.footer {
-  display: flex;
-  justify-content: center;
-  padding: 1rem;
-  margin-top: auto;
-  color: #007bff;
-  text-decoration: none;
+/* ===== Footer ===== */
+footer {
+  background-color: #4b3b70;
+  color: #ffffff;
+}
+
+footer a {
+  color: #d1c4f1;
+}
+
+footer a:hover {
+  color: #ffffff;
 }

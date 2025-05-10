@@ -10,9 +10,12 @@
   "nav_about": "Tietoa",
 
   "welcome_heading": "Tervetuloa taajuusjakotaulukko-palveluun",
-  "intro_text": "Selaa Traficomin taajuusjakotaulukkoa helposti ja nopeasti.",
+  "intro_text": "Selaa Traficomin taajuusjakotaulukkoa.",
   "extra_info": "Voit etsiä taajuusalueita ja palveluita, sekä tarkastella niiden tietoja.",
-  "info_text": "SIVUA RAKENNETAAN. TARKISTA LOPPUTULOS MYÖHEMMIN ARVIOITU VALMISTUMINEN KEVÄT 2026.",
+
+  "info_text": "Tietoa",
+  "info_section_text": "Tämä palvelu hyödyntää Liikenne- ja viestintävirasto Traficomin avointa dataa radiotaajuuksista. Virallinen taajuusjako perustuu sääntelyyn, jota ohjaa <a href='https://www.traficom.fi/fi/saadokset/radiotaajuusmaarays-4' target='_blank' rel='noopener noreferrer'>Radiotaajuusmääräys 4</a>.",
+
   "profession": "RF-asentaja, tieto- ja tietoliikennetekniikan insinööri (opiskelija)",
   "footer_license": "Taajuustiedot: Liikenne- ja viestintävirasto Traficom, lisenssi CC BY 4.0."
 }

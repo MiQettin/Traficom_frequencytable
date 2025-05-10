@@ -11,6 +11,7 @@
   <script defer src="js/script.js"></script>
 </head>
 <body>
+  <div class="w-100 mx-auto px-3" style="max-width: 95vw; max-width: 1320px;"> <!-- Main content wrapperi, bootrapilla 100 + erilliset asetukset viewportille, jottei levii-->
   <div id="wrapper">
     <!-- Sticky Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
@@ -46,37 +47,55 @@
     </nav>
 
     <!-- Main -->
-    <main class="container my-4">
-      <section class="welcome-section">
-        <h1 data-i18n="welcome_heading">Tervetuloa taajuusjakotaulukko-palveluun</h1>
-        <p class="lead" data-i18n="intro_text">Selaa Traficomin taajuusjakotaulukkoa helposti ja nopeasti.</p>
-        <p data-i18n="extra_info">Voit etsiä taajuusalueita ja palveluita, sekä tarkastella niiden tietoja.</p>
-      </section>
+    <main class="container-fluid my-4"> <!-- fluidin avulla annetaan koko näyttö käyttöön, tehdään width rajoitukset muualla!-->
+        <section class="welcome-section">
+          <h1 data-i18n="welcome_heading">Tervetuloa taajuusjakotaulukko-palveluun</h1>
+          <p class="lead" data-i18n="intro_text">Selaa Traficomin taajuusjakotaulukkoa.</p>
+          <p data-i18n="extra_info">Voit etsiä taajuusalueita ja palveluita, sekä tarkastella niiden tietoja.</p>
+        </section>
 
-      <!-- Taulukko -->
-      <div class="controls mb-3">
-        <input type="text" id="search" class="form-control d-inline w-50" placeholder="Hae taajuusalueella...">
-        <button id="search-button" class="btn btn-primary ms-2">Hae</button>
-        <button id="reset-button" class="btn btn-secondary ms-2">Tyhjennä</button>
-      </div>
-      <p id="status-message">Ladataan dataa...</p>
-      <div class="table-responsive">
-        <table class="table table-bordered">
-          <thead>
-            <tr>
-              <th>Taajuusalue</th>
-              <th>Palvelu</th>
-              <th>Huomautukset</th>
-            </tr>
-          </thead>
-          <tbody id="table-body"></tbody>
-        </table>
-      </div>
+        <div class="controls mb-3 w-100"> <!-- Haku -->
+          <div class="d-flex flex-wrap align-items-center gap-2">
+            <input type="text" id="search" class="form-control" placeholder="Hae..." style="max-width: 200px;" maxlength="6" inputmode="numeric" pattern="[0-9]*">
+            <select id="unit" class="form-select" style="max-width: 90px;">
+              <option value="kHz">kHz</option>
+              <option value="MHz">MHz</option>
+              <option value="GHz">GHz</option>
+            </select>
+            <button id="search-button" class="btn btn-primary">Hae</button>
+            <button id="reset-button" class="btn btn-secondary">Tyhjennä</button>
+          </div>
+        </div>
 
-      <section class="info-section" id="tietoa">
-        <h2 data-i18n="info_text">Tietoa</h2>
-      </section>
+        <p id="status-message">Ladataan dataa...</p> <!-- Heittää tänne js:stä info tekstit latauksesta, värit siellä -->
+        <div class="table-wrapper">  <!-- Taulukko -->
+        <div class="table-responsive">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Taajuusalue</th>
+                <th>Palvelu</th>
+                <th>Huomautukset</th>
+              </tr>
+            </thead>
+            <tbody id="table-body"></tbody>
+          </table>
+        </div>
+        </div>
+
+        <section class="info-section" id="tietoa">
+          <h2 data-i18n="info_text">Tietoa</h2>
+          <p>
+            Tämä palvelu hyödyntää Liikenne- ja viestintävirasto Traficomin avointa dataa radiotaajuuksista. 
+            Virallinen taajuusjako perustuu sääntelyyn, jota ohjaa 
+            <a href="https://www.traficom.fi/fi/saadokset/radiotaajuusmaarays-4" target="_blank" rel="noopener noreferrer">
+              Radiotaajuusmääräys 4
+            </a>.
+          </p>
+        </section>
+ 
     </main>
+  </div> 
 
     <!-- Footer -->
     <footer class="bg-dark text-light py-4 mt-auto">
@@ -86,7 +105,7 @@
             <h5>Mirka Romppanen</h5>
             <p data-i18n="profession">RF-asentaja, tieto- ja tietoliikennetekniikan insinööri (opiskelija)</p>
             <p>
-              📧 <a href="mailto:etunimi.sukunimi@email.com" class="text-light">etunimi.sukunimi@email.com</a><br>
+              🔗 <a href="https://www.linkedin.com/in/mirka-romppanen/" class="text-light" target="_blank" rel="noopener noreferrer">LinkedIn / Mirka Romppanen</a><br>
               💼 <a href="https://github.com/MiQettin" class="text-light" target="_blank" rel="noopener noreferrer">GitHub.com/MiQettin</a>
             </p>
           </div>
