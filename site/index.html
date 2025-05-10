@@ -64,20 +64,20 @@
             </select>
             <button id="search-button" class="btn btn-primary">Hae</button>
             <button id="reset-button" class="btn btn-secondary">Tyhjennä</button>
+            <p id="status-message">Ladataan dataa...</p> <!-- Heittää tänne js:stä info tekstit latauksesta, värit siellä -->
           </div>
         </div>
 
-        <p id="status-message">Ladataan dataa...</p> <!-- Heittää tänne js:stä info tekstit latauksesta, värit siellä -->
         <div class="table-wrapper">  <!-- Taulukko -->
         <div class="table-responsive">
           <table class="table table-bordered">
-              <thead>
-                <tr>
-                  <th data-i18n="table_heading_usage"></th>
-                  <th data-i18n="table_heading_subband"></th>
-                  <th data-i18n="table_heading_comment"></th>
-                </tr>
-              </thead>
+            <thead>
+              <tr>
+                <th data-i18n="table_col1">Taajuusalue ja osa-alueet (leveys)</th>
+                <th data-i18n="table_col2">Liikennemuoto / Lähetetiedot</th>
+                <th data-i18n="table_col3">Huomautukset</th>
+              </tr>
+            </thead>
             <tbody id="table-body"></tbody>
           </table>
         </div>

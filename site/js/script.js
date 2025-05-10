@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const resetButton = document.getElementById("reset-button");
   let originalData = [];
 
-  fetch(DATA_URL)
+  fetch(DATA_URL) /* Ei päivity tällä hetkellä, kun kieli vaihdetaan -> Selvitä myöhemmin. */
     .then(response => response.json())
     .then(json => {
       originalData = json.value; // tärkeä muutos!
@@ -23,18 +23,67 @@ document.addEventListener("DOMContentLoaded", () => {
       statusMessage.style.color = "red";
     });
 
-    function renderTable(data) {
-      let html = "";
-      data.forEach(item => {
-        html += `
-          <tr>
-            <td>${item.Sub_band_lower_limit} – ${item.Sub_band_upper_limit}</td>
-            <td>${item.Services_in_Finland || "-"}</td>
-            <td>${item.Comment || item.Sub_band_usage || "-"}</td>
-          </tr>`;
-      });
-      tableBody.innerHTML = html;
+function renderTable(data) {
+  const tableBody = document.getElementById("table-body");
+
+  const grouped = {};
+  data.forEach(item => {
+    const bandKey = `${item.Frequency_band_lower_limit} – ${item.Frequency_band_upper_limit}`;
+    if (!grouped[bandKey]) {
+      grouped[bandKey] = [];
     }
+    grouped[bandKey].push(item);
+  });
+
+  let html = "";
+  for (const band in grouped) {
+    const group = grouped[band];
+
+    html += `
+      <tr class="table-primary fw-bold">
+        <td colspan="3">${band}</td>
+      </tr>
+    `;
+
+    group.forEach(item => {
+      const subband = `${item.Sub_band_lower_limit} – ${item.Sub_band_upper_limit}`;
+      const width = item.Sub_band_width ? ` (${item.Sub_band_width})` : "";
+      const usage = item.Sub_band_usage || "";
+      const service = item.Services_in_Finland || "-";
+
+      const leftCol = `
+        <strong>${subband}${width}</strong><br>
+        ${usage}<br>
+        <span class="text-muted">${service}</span>
+      `;
+
+      const traffic = [
+        item.Mode_of_traffic,
+        item.Class_of_station,
+        item.Direction,
+        item.Transmitter_power ? `${item.Transmitter_power} W` : "",
+        item.Bandwidth || "",
+      ].filter(Boolean).join(" ");
+
+      const note = item.Comment || "-";
+
+      html += `
+        <tr>
+          <td>${leftCol}</td>
+          <td>${traffic}</td>
+          <td>${note}</td>
+        </tr>
+      `;
+    });
+  }
+
+  tableBody.innerHTML = html;
+}
+
+
+
+
+
     
 
     function filterTable() {
