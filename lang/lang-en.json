@@ -6,12 +6,15 @@
   "language_label": "Language",
 
   "nav_home": "Home",
-  "nav_table": "Frequency Table",
-  "nav_about": "About",
+  "nav_about_author": "About the Author",
+  "nav_about": "About the Service",
 
+
+  "info_button": "ℹ️ Show instructions",
+  "info_button_hide": "ℹ️ Hide instructions",
   "welcome_heading": "Welcome to the Frequency Table Service",
-  "intro_text": "Browse Traficom’s frequency allocation table.",
-  "extra_info": "You can search frequency ranges and services, and view detailed information.",
+  "intro_text": "This service provides an interface to the open frequency allocation table from the Finnish Transport and Communications Agency Traficom.",
+  "extra_info": "You can search for frequency ranges by entering a value and selecting the unit (kHz, MHz, GHz).",
 
   "search-button": "Search",
   "reset-button" : "Empty",

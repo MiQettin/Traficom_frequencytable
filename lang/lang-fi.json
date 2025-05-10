@@ -6,12 +6,15 @@
   "language_label": "Kieli",
   
   "nav_home": "Etusivu",
-  "nav_table": "Taajuustaulukko",
-  "nav_about": "Tietoa",
+  "nav_about_author": "Tietoa tekijästä",
+  "nav_about": "Tietoa palvelusta",
 
+
+  "info_button": "ℹ️ Näytä ohjeet",
+  "info_button_hide": "ℹ️ Piilota ohjeet",
   "welcome_heading": "Tervetuloa taajuusjakotaulukko-palveluun",
-  "intro_text": "Selaa Traficomin taajuusjakotaulukkoa.",
-  "extra_info": "Voit etsiä taajuusalueita ja palveluita, sekä tarkastella niiden tietoja.",
+  "intro_text": "Tämä palvelu tarjoaa käyttöliittymän Liikenne- ja viestintävirasto Traficomin avoimeen taajuusjakotaulukkoon.",
+  "extra_info": "Voit hakea taajuuksia kirjoittamalla taajuusarvon ja valitsemalla yksikön (kHz, MHz, GHz).",
 
   "search-button": "Hae",
   "reset-button" : "Tyhjennä",

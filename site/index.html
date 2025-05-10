@@ -28,11 +28,11 @@
               <a class="nav-link active" href="#" data-i18n="nav_home">Etusivu</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="taajuustaulukko.html" data-i18n="nav_table">Taajuustaulukko</a>
+              <a class="nav-link" href="#tietoa" data-i18n="nav_about">Tietoa sivusta</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#tietoa" data-i18n="nav_about">Tietoa</a>
-            </li>
+              <a class="nav-link" href="about-author.html" data-i18n="nav_about_author">Tieto tekijästä</a>
+            </li> 
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 🌐 <span data-i18n="language_label">Kieli</span>
@@ -49,12 +49,22 @@
   <!--  <div class="container-fluid px-1 px-sm-3" style="max-width: 1320px;"> -->
     <!-- Main -->
     <main class="container-fluid my-4"> <!-- fluidin avulla annetaan koko näyttö käyttöön, tehdään width rajoitukset muualla!-->
-        <section class="welcome-section">
-          <h1 data-i18n="welcome_heading">Tervetuloa taajuusjakotaulukko-palveluun</h1>
-          <p class="lead" data-i18n="intro_text">Selaa Traficomin taajuusjakotaulukkoa.</p>
-          <p data-i18n="extra_info">Voit etsiä taajuusalueita ja palveluita, sekä tarkastella niiden tietoja.</p>
-        </section>
-
+      <div class="info-toggle-wrapper mb-4">
+        <div id="info-content" class="hide_mobile">
+          <section class="welcome-section">
+            <h1 data-i18n="welcome_heading">Tervetuloa taajuusjakotaulukko-palveluun</h1>
+            <p class="lead" data-i18n="intro_text">
+              Tämä palvelu tarjoaa käyttöliittymän Liikenne- ja viestintävirasto Traficomin avoimeen taajuusjakotaulukkoon.
+            </p>
+            <p data-i18n="extra_info">
+              Voit hakea taajuuksia kirjoittamalla taajuusarvon ja valitsemalla yksikön (kHz, MHz, GHz). 
+            </p>
+          </section>
+        </div>
+        <button class="btn btn-outline-light border-secondary rounded-pill px-4 py-2 fw-semibold" id="info-toggle" data-i18n="info_button_hide">
+          <span data-i18n="info_button_hide">Piilota lisätiedot</span>
+        </button>
+      </div>
         <div class="controls mb-3 w-100"> <!-- Haku -->
           <div class="d-flex flex-wrap align-items-center gap-2">
             <input type="text" id="search" class="form-control" placeholder="Hae..." style="max-width: 200px;" maxlength="6" inputmode="numeric" pattern="[0-9]*">
@@ -94,6 +104,7 @@
               Radiotaajuusmääräys 4
             </a>.
           </p>
+          <p> Site under contstruction</p> 
         </section>
  
     </main>
