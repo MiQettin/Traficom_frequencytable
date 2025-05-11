@@ -51,7 +51,7 @@
     <main class="container-fluid mt-2 mb-3"> <!-- fluidin avulla annetaan koko näyttö käyttöön, tehdään width rajoitukset muualla!-->
       <div class="info-toggle-wrapper mb-4">
         <div id="info-content" class="hide_mobile">
-          <section class="welcome-section bg-dark bg-opacity-75 text-light p-4 rounded">
+          <section class="welcome-section bg-dark bg-opacity-85 text-light p-4 rounded">
             <h1 data-i18n="welcome_heading">Tervetuloa taajuusjakotaulukko-palveluun</h1>
             <p class="lead" data-i18n="intro_text">
               Tämä palvelu tarjoaa käyttöliittymän Liikenne- ja viestintävirasto Traficomin avoimeen taajuusjakotaulukkoon.
@@ -110,24 +110,34 @@
     </main>
   </div> 
 
-    <!-- Footer -->
     <footer class="bg-dark text-light py-4 mt-auto">
       <div class="container">
+        
         <div class="row">
           <div class="col-md-6">
             <h5>Mirka Romppanen</h5>
             <p data-i18n="profession">RF-asentaja, tieto- ja tietoliikennetekniikan insinööri (opiskelija)</p>
+          </div>
+          <div class="col-md-6 d-flex flex-column align-items-md-end align-items-start text-md-end text-start">
+            <h5 data-i18n="contact">Yhteystiedot</h5>
             <p>
               🔗 <a href="https://www.linkedin.com/in/mirka-romppanen/" class="text-light" target="_blank" rel="noopener noreferrer">LinkedIn / Mirka Romppanen</a><br>
               💼 <a href="https://github.com/MiQettin" class="text-light" target="_blank" rel="noopener noreferrer">GitHub.com/MiQettin</a>
             </p>
           </div>
-          <div class="col-md-6">
-            <p class="text-muted small mt-3 mt-md-0" data-i18n="footer_license">
-              Taajuustiedot: <a href="https://tieto.traficom.fi/fi/tietotraficom/avoin-data?toggle=Taajuudet" class="text-light" target="_blank" rel="noopener noreferrer">Liikenne- ja viestintävirasto Traficom</a>, lisenssi <a href="https://creativecommons.org/licenses/by/4.0/deed.fi" class="text-light" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.
+        </div>
+
+        <div class="row mt-3">
+          <div class="col-12">
+            <p data-i18n="footer_license">
+              Taajuustiedot: 
+              <a href="https://tieto.traficom.fi/fi/tietotraficom/avoin-data?toggle=Taajuudet" class="text-light" target="_blank" rel="noopener noreferrer">Liikenne- ja viestintävirasto Traficom</a>, 
+              lisenssi 
+              <a href="https://creativecommons.org/licenses/by/4.0/deed.fi" class="text-light" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.
             </p>
           </div>
         </div>
+
       </div>
     </footer>
   </div>

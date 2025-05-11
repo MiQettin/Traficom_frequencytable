@@ -16,11 +16,11 @@ html, body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  max-width: 1320px;
-  margin-left: auto;
-  margin-right: auto;
   width: 100%;
   box-sizing: border-box;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 15px;
 }
 
 /* ===== Main ===== */
@@ -152,6 +152,11 @@ footer a:hover {
 
 /* ===== Responsiivisuus ===== */
 @media (max-width: 576px) {
+
+  #wrapper {
+    padding: 0;
+  } /*Tilat tehty flexboxilla -> ei tarpeellinen*/ 
+
   #info-toggle {
     display: inline-block;
     margin-top: 0.5rem;
@@ -185,6 +190,10 @@ footer a:hover {
 }
 
 @media (min-width: 768px) {
+    #wrapper {
+    padding: 5px;
+  } /*Tilat tehty flexboxilla -> ei tarpeellinen*/
+
   .controls input {
     max-width: 200px;
   }

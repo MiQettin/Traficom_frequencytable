@@ -32,5 +32,6 @@
   "info_section_text": "Tämä palvelu hyödyntää Liikenne- ja viestintävirasto Traficomin avointa dataa radiotaajuuksista. Virallinen taajuusjako perustuu sääntelyyn, jota ohjaa <a href='https://www.traficom.fi/fi/saadokset/radiotaajuusmaarays-4' target='_blank' rel='noopener noreferrer'>Radiotaajuusmääräys 4</a>.",
 
   "profession": "RF-asentaja, tieto- ja tietoliikennetekniikan insinööri (opiskelija)",
+  "contact": "Yhteystiedot:",
   "footer_license": "Taajuustiedot: Liikenne- ja viestintävirasto Traficom, lisenssi CC BY 4.0."
 }
