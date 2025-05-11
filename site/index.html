@@ -15,7 +15,7 @@
  <!-- Main content wrapperi, bootrapilla 100 + erilliset asetukset viewportille, jottei levii-->
   <div id="wrapper">
     <!-- Sticky Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top rounded-bottom">
       <div class="container-fluid">
         <a class="navbar-brand" href="#" data-i18n="site_title">Taajuusjakotaulukko</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -51,7 +51,7 @@
     <main class="container-fluid my-4"> <!-- fluidin avulla annetaan koko näyttö käyttöön, tehdään width rajoitukset muualla!-->
       <div class="info-toggle-wrapper mb-4">
         <div id="info-content" class="hide_mobile">
-          <section class="welcome-section">
+          <section class="welcome-section bg-dark bg-opacity-75 text-light p-4 rounded">
             <h1 data-i18n="welcome_heading">Tervetuloa taajuusjakotaulukko-palveluun</h1>
             <p class="lead" data-i18n="intro_text">
               Tämä palvelu tarjoaa käyttöliittymän Liikenne- ja viestintävirasto Traficomin avoimeen taajuusjakotaulukkoon.
@@ -95,7 +95,7 @@
         </div>
         </div>
 
-        <section class="info-section" id="tietoa">
+        <section class="info-section bg-dark bg-opacity-75 text-white rounded p-4" id="tietoa">
           <h2 data-i18n="info_text">Tietoa</h2>
           <p>
             Tämä palvelu hyödyntää Liikenne- ja viestintävirasto Traficomin avointa dataa radiotaajuuksista. 
