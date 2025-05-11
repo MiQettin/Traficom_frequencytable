@@ -1,6 +1,9 @@
-/* ===== Layout ===== */
+/* ===== Yleisasetukset ===== */
 html, body {
   background-image: url('../media/bg_chatgpt_waves.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
   height: 100%;
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
@@ -8,6 +11,7 @@ html, body {
   color: #ffffff;
 }
 
+/* ===== Wrapper ===== */
 #wrapper {
   display: flex;
   flex-direction: column;
@@ -19,9 +23,10 @@ html, body {
   box-sizing: border-box;
 }
 
+/* ===== Main ===== */
 main {
   flex: 1;
-  padding: 1rem;
+  padding: 0.5rem;
   width: 100%;
   box-sizing: border-box;
 }
@@ -46,9 +51,9 @@ main {
   background-color: #6c59a1 !important;
 }
 
-/* ===== Dropdown-valikko ===== */
+/* ===== Dropdown ===== */
 .dropdown-menu {
-  background-color: #6c59a1;
+  background-color: #5e3b99;
   border: none;
 }
 
@@ -58,7 +63,7 @@ main {
 
 .dropdown-menu .dropdown-item:hover,
 .dropdown-menu .dropdown-item:focus {
-  background-color: #8265c0;
+  background-color: #5e3b99;
   color: #ffffff;
 }
 
@@ -77,7 +82,7 @@ main {
   flex: 1;
 }
 
-/* ===== Piilotettava ohjealue (Mobile only) ===== */
+/* ===== Info-toggle-nappi (vain mobiilissa) ===== */
 #info-toggle {
   display: none;
   background-color: #2c2c2c;
@@ -93,14 +98,6 @@ main {
   color: #ffffff;
 }
 
-@media (max-width: 576px) {
-  #info-toggle {
-    display: inline-block;
-    margin-top: 0.5rem;
-    margin-bottom: 1rem;
-  }
-}
-
 /* ===== Taulukko ===== */
 .table-wrapper {
   max-height: 66vh;
@@ -111,14 +108,27 @@ main {
 }
 
 .table th {
-  background-color: #6c59a1;
+  background-color: #5e3b99;
   color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 
 .table td {
   background-color: #f8f9fa;
   color: #212529;
   vertical-align: top;
+}
+
+/* ===== Info- ja tervetuloa-boksit ===== */
+.welcome-section,
+.info-section {
+  background-color: rgba(30, 30, 60, 0.75);
+  color: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 /* ===== Footer ===== */
@@ -140,8 +150,14 @@ footer a:hover {
   color: #ffffff;
 }
 
-/* ===== Responsiivisuus (Mobile-first) ===== */
+/* ===== Responsiivisuus ===== */
 @media (max-width: 576px) {
+  #info-toggle {
+    display: inline-block;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
   .controls {
     flex-direction: column;
     align-items: stretch;
@@ -161,9 +177,13 @@ footer a:hover {
     font-size: 0.875rem;
     padding: 0.5rem;
   }
+
+  .welcome-section,
+  .info-section {
+    padding: 1rem;
+  }
 }
 
-/* MD-näytöt ja ylöspäin */
 @media (min-width: 768px) {
   .controls input {
     max-width: 200px;
@@ -182,7 +202,6 @@ footer a:hover {
   }
 }
 
-/* LG-näytöt ja ylöspäin */
 @media (min-width: 992px) {
   main {
     padding-left: 4rem;
