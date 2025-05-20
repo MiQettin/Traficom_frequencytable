@@ -31,7 +31,9 @@
   "info_text": "About",
   "info_section_text": "This service uses open data from the Finnish Transport and Communications Agency Traficom. The official frequency allocation is regulated by the document known as <a href='https://www.traficom.fi/fi/saadokset/radiotaajuusmaarays-4' target='_blank' rel='noopener noreferrer'>Radio Frequency Regulation 4</a>.",
 
-  "profession": "RF technician, future ICT engineer (student)",
+  "info_construction": "This service is under development and may still change. Feedback can be sent to the author.",
+
+  "info_creator": "This page was created by Mirka Romppanen, RF technician and ICT engineering student. The service was built for educational and hobby use.",
   "contact": "Contact:",
   "footer_license": "Frequency data: Finnish Transport and Communications Agency Traficom, licensed under CC BY 4.0."
 }

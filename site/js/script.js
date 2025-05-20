@@ -22,6 +22,13 @@ document.addEventListener("DOMContentLoaded", () => {
       statusMessage.style.color = "red";
     });
 
+  fetch('data/metadata.json')
+    .then(res => res.json())
+    .then(meta => {
+      const formatted = new Date(meta.last_updated).toLocaleString('fi-FI');
+      document.getElementById('data-timestamp').textContent = `Data updated: ${formatted}`;
+  });
+
   function renderTable(data) {
     const grouped = {};
     data.forEach(item => {
