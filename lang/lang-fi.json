@@ -31,9 +31,10 @@
   "info_text": "Tietoa",
   "info_section_text": "Tämä palvelu hyödyntää Liikenne- ja viestintävirasto Traficomin avointa dataa radiotaajuuksista. Virallinen taajuusjako perustuu sääntelyyn, jota ohjaa <a href='https://www.traficom.fi/fi/saadokset/radiotaajuusmaarays-4' target='_blank' rel='noopener noreferrer'>Radiotaajuusmääräys 4</a>.",
 
-  "info_construction": "Tämä palvelu on kehitysvaiheessa ja voi vielä muuttua. Palautetta voi lähettää tekijälle.",  
+  "info_construction": "Palvelu on kehitysvaiheessa ja voi vielä muuttua. Palautetta voi lähettää tekijälle.",  
 
   "info_creator": "Sivun on toteuttanut Mirka Romppanen, RF-asentaja ja tieto- ja tietoliikennetekniikan insinööriopiskelija. Palvelu on luotu opinnolliseen ja harrastekäyttöön",
   "contact": "Yhteystiedot:",
-  "footer_license": "Taajuustiedot: Liikenne- ja viestintävirasto Traficom, lisenssi CC BY 4.0."
+  "footer_license": "Taajuustiedot: Liikenne- ja viestintävirasto Traficom, lisenssi CC BY 4.0.",
+  "feedback_button": "✉️ Lähetä palautetta"
 }

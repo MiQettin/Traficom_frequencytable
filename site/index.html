@@ -99,7 +99,7 @@
         
         <section class="info-section bg-dark bg-opacity-75 text-white rounded p-4" id="tietoa">
           <h2 data-i18n="info_text">Tietoa</h2>
-          <p>
+          <p data-i18n="info_section_text">
             Tämä palvelu hyödyntää Liikenne- ja viestintävirasto Traficomin avointa dataa radiotaajuuksista. 
             Virallinen taajuusjako perustuu sääntelyyn, jota ohjaa 
             <a href="https://www.traficom.fi/fi/saadokset/radiotaajuusmaarays-4" target="_blank" rel="noopener noreferrer">
@@ -107,6 +107,7 @@
             </a>.
           </p>
           <p data-i18n="info_construction"> Site under contstruction</p> 
+          
         </section>
  
     </main>
@@ -114,34 +115,44 @@
 
     <footer class="bg-dark text-light py-4 mt-auto">
       <div class="container">
-        
         <div class="row">
+          <!-- Vasen sarake -->
           <div class="col-md-6">
             <h5 class="mb-2">© <span id="year"></span> Mirka Romppanen</h5>
-            <p data-i18n="info_creator">Sivun on toteuttanut Mirka Romppanen, RF-asentaja ja tieto- ja tietoliikennetekniikan insinööriopiskelija. Palvelu on luotu opinnolliseen ja harrastekäyttöön</p>
+            <p data-i18n="info_creator" class="mb-0">
+              Sivun on toteuttanut Mirka Romppanen, RF-asentaja ja tieto- ja tietoliikennetekniikan insinööriopiskelija.
+              Palvelu on luotu opinnolliseen ja harrastekäyttöön.
+            </p>
           </div>
-          <div class="col-md-6 d-flex flex-column align-items-md-end align-items-start text-md-end text-start">
+
+          <!-- Oikea sarake -->
+          <div class="col-md-6 text-md-end text-start">
             <h5 data-i18n="contact">Yhteystiedot</h5>
-            <p>
+            <p class="mb-1">
               🔗 <a href="https://www.linkedin.com/in/mirka-romppanen/" class="text-light" target="_blank" rel="noopener noreferrer">LinkedIn / Mirka Romppanen</a><br>
               💼 <a href="https://github.com/MiQettin" class="text-light" target="_blank" rel="noopener noreferrer">GitHub.com/MiQettin</a>
             </p>
+            <a href="https://github.com/MiQettin/Traficom_frequencytable/issues/new?title=Feedback%20from%20site&body=Insert%20feedback"
+              target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-sm mt-2" data-i18n="feedback_button">
+              ✉️ Lähetä palautetta
+            </a>
           </div>
         </div>
 
+        <!-- Lisenssi -->
         <div class="row mt-3">
-          <div class="col-12">
-            <p data-i18n="footer_license">
-              Taajuustiedot: 
-              <a href="https://tieto.traficom.fi/fi/tietotraficom/avoin-data?toggle=Taajuudet" class="text-light" target="_blank" rel="noopener noreferrer">Liikenne- ja viestintävirasto Traficom</a>, 
-              lisenssi 
+          <div class="col-12 text-center">
+            <p class="mb-0" data-i18n="footer_license">
+              Taajuustiedot:
+              <a href="https://tieto.traficom.fi/fi/tietotraficom/avoin-data?toggle=Taajuudet" class="text-light" target="_blank" rel="noopener noreferrer">Liikenne- ja viestintävirasto Traficom</a>,
+              lisenssi
               <a href="https://creativecommons.org/licenses/by/4.0/deed.fi" class="text-light" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.
             </p>
           </div>
         </div>
-
       </div>
     </footer>
+
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
