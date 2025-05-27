@@ -18,7 +18,6 @@ html, body {
   min-height: 100vh;
   width: 100%;
   box-sizing: border-box;
- /* max-width: 1320px; */
   margin: 0 auto;
   padding: 0 15px;
 }
@@ -120,6 +119,24 @@ main {
   vertical-align: top;
 }
 
+/* ===== Kortit mobiilinäkymään ===== */
+.card-view .card {
+  background-color: rgba(30, 30, 60, 0.85);
+  color: #ffffff;
+  border: 1px solid #5e3b99;
+  border-radius: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.card-view .card-header {
+  background-color: #5e3b99;
+  font-weight: bold;
+}
+
+.card-view .card-body p {
+  margin-bottom: 0.5rem;
+}
+
 /* ===== Info- ja tervetuloa-boksit ===== */
 .welcome-section,
 .info-section {
@@ -150,10 +167,9 @@ footer a:hover {
 
 /* ===== Responsiivisuus ===== */
 @media (max-width: 576px) {
-
   #wrapper {
     padding: 0;
-  } /*Tilat tehty flexboxilla -> ei tarpeellinen*/ 
+  }
 
   #info-toggle {
     display: inline-block;
@@ -164,6 +180,12 @@ footer a:hover {
   .controls {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  #status-message,
+  #data-timestamp {
+    font-size: 0.75rem;
+    white-space: nowrap;
   }
 
   main {
@@ -188,9 +210,9 @@ footer a:hover {
 }
 
 @media (min-width: 768px) {
-    #wrapper {
+  #wrapper {
     padding: 5px;
-  } /*Tilat tehty flexboxilla -> ei tarpeellinen*/
+  }
 
   .controls input {
     max-width: 200px;

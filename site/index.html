@@ -13,10 +13,7 @@
   <script defer src="js/script.js"></script>
 </head>
 <body>
-  
- <!-- Main content wrapperi, bootrapilla 100 + erilliset asetukset viewportille, jottei levii-->
   <div id="wrapper">
-    <!-- Sticky Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top rounded-bottom">
       <div class="container-fluid">
         <a class="navbar-brand" href="#" data-i18n="site_title">Taajuusjakotaulukko</a>
@@ -32,9 +29,6 @@
             <li class="nav-item">
               <a class="nav-link" href="#tietoa" data-i18n="nav_about">Tietoa sivusta</a>
             </li>
-        <!--    <li class="nav-item">
-              <a class="nav-link" href="about-author.html" data-i18n="nav_about_author">Tieto tekijästä</a>
-            </li> --> 
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 🌐 <span data-i18n="language_label">Kieli</span>
@@ -48,8 +42,8 @@
         </div>
       </div>
     </nav>
-    <!-- Main -->
-    <main class="container-fluid mt-2 mb-3"> <!-- fluidin avulla annetaan koko näyttö käyttöön, tehdään width rajoitukset muualla!-->
+
+    <main class="container-fluid mt-2 mb-3">
       <div class="info-toggle-wrapper mb-4">
         <div id="info-content" class="hide_mobile">
           <section class="welcome-section bg-dark bg-opacity-85 text-light p-4 rounded">
@@ -66,94 +60,89 @@
           <span data-i18n="info_button_hide">Piilota lisätiedot</span>
         </button>
       </div>
-        <div class="controls mb-3 w-100"> <!-- Haku -->
-          <div class="d-flex flex-wrap align-items-center gap-2">
-            <input type="text" id="search" class="form-control" placeholder="Hae..." style="max-width: 200px;" maxlength="6" inputmode="numeric" pattern="[0-9]*">
-            <select id="unit" class="form-select" style="max-width: 90px;">
-              <option value="kHz">kHz</option>
-              <option value="MHz">MHz</option>
-              <option value="GHz">GHz</option>
-            </select>
-            <button data-i18n="search-button" id="search-button" class="btn btn-primary">Hae</button>
-            <button data-i18n="reset-button" id="reset-button" class="btn btn-secondary">Tyhjennä</button>
+
+      <div class="controls mb-3 w-100">
+        <form id="search-form" class="d-flex flex-wrap align-items-center gap-2">
+          <input type="text" id="search" class="form-control" placeholder="Hae..." style="max-width: 200px;" maxlength="6" inputmode="numeric" pattern="[0-9]*">
+          <select id="unit" class="form-select" style="max-width: 90px;">
+            <option value="kHz">kHz</option>
+            <option value="MHz">MHz</option>
+            <option value="GHz">GHz</option>
+          </select>
+          <button type="submit" data-i18n="search-button" id="search-button" class="btn btn-primary">Hae</button>
+          <button type="button" data-i18n="reset-button" id="reset-button" class="btn btn-secondary">Tyhjennä</button>
           <div class="d-flex align-items-center flex-wrap gap-2">
             <p id="status-message" class="bg-dark bg-opacity-60 rounded px-2 py-1 mb-0">Ladataan dataa...</p>
             <p id="data-timestamp" class="bg-dark bg-opacity-60 rounded px-2 py-1 mb-0 text-light small fst-italic"></p>
           </div>
-          </div>
-        </div>
+        </form>
+      </div>
 
-        <div class="table-wrapper">  <!-- Taulukko -->
-          <table class="table table-bordered">
-            <thead>
-              <tr>
-                <th data-i18n="table_col1" class="w-25">Taajuusalue<br>Käyttö Suomessa</th>
-                <th data-i18n="table_col2" class="w-25">Alikaista (leveys)<br>Käyttö</th>
-                <th data-i18n="table_col3" class="w-25">Liikennemuoto / Lähetetiedot</th>
-                <th data-i18n="table_col4" class="w-25">Huomautukset</th>
-              </tr>
-            </thead>
-            <tbody id="table-body"></tbody>
-          </table>
-        </div>
-        
-        <section class="info-section bg-dark bg-opacity-75 text-white rounded p-4" id="tietoa">
-          <h2 data-i18n="info_text">Tietoa</h2>
-          <p data-i18n="info_section_text">
-            Tämä palvelu hyödyntää Liikenne- ja viestintävirasto Traficomin avointa dataa radiotaajuuksista. 
-            Virallinen taajuusjako perustuu sääntelyyn, jota ohjaa 
-            <a href="https://www.traficom.fi/fi/saadokset/radiotaajuusmaarays-4" target="_blank" rel="noopener noreferrer">
-              Radiotaajuusmääräys 4
-            </a>.
-          </p>
-          <p data-i18n="info_construction"> Site under contstruction</p> 
-          
-        </section>
- 
+      <div class="table-wrapper d-none d-md-block">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th data-i18n="table_col1" class="w-25">Taajuusalue<br>Käyttö Suomessa</th>
+              <th data-i18n="table_col2" class="w-25">Alikaista (leveys)<br>Käyttö</th>
+              <th data-i18n="table_col3" class="w-25">Liikennemuoto / Lähetetiedot</th>
+              <th data-i18n="table_col4" class="w-25">Huomautukset</th>
+            </tr>
+          </thead>
+          <tbody id="table-body"></tbody>
+        </table>
+      </div>
+
+      <div id="card-view" class="d-block d-md-none"></div>
+
+      <section class="info-section bg-dark bg-opacity-75 text-white rounded p-4" id="tietoa">
+        <h2 data-i18n="info_text">Tietoa</h2>
+        <p data-i18n="info_section_text">
+          Tämä palvelu hyödyntää Liikenne- ja viestintävirasto Traficomin avointa dataa radiotaajuuksista. 
+          Virallinen taajuusjako perustuu sääntelyyn, jota ohjaa 
+          <a href="https://www.traficom.fi/fi/saadokset/radiotaajuusmaarays-4" target="_blank" rel="noopener noreferrer">
+            Radiotaajuusmääräys 4
+          </a>.
+        </p>
+        <p data-i18n="info_construction"> Site under contstruction</p> 
+      </section>
     </main>
   </div> 
 
-    <footer class="bg-dark text-light py-4 mt-auto">
-      <div class="container">
-        <div class="row">
-          <!-- Vasen sarake -->
-          <div class="col-md-6">
-            <h5 class="mb-2">© <span id="year"></span> Mirka Romppanen</h5>
-            <p data-i18n="info_creator" class="mb-0">
-              Sivun on toteuttanut Mirka Romppanen, RF-asentaja ja tieto- ja tietoliikennetekniikan insinööriopiskelija.
-              Palvelu on luotu opinnolliseen ja harrastekäyttöön.
-            </p>
-          </div>
-
-          <!-- Oikea sarake -->
-          <div class="col-md-6 text-md-end text-start">
-            <h5 data-i18n="contact">Yhteystiedot</h5>
-            <p class="mb-1">
-              🔗 <a href="https://www.linkedin.com/in/mirka-romppanen/" class="text-light" target="_blank" rel="noopener noreferrer">LinkedIn / Mirka Romppanen</a><br>
-              💼 <a href="https://github.com/MiQettin" class="text-light" target="_blank" rel="noopener noreferrer">GitHub.com/MiQettin</a>
-            </p>
-            <a href="https://github.com/MiQettin/Traficom_frequencytable/issues/new?title=Feedback%20from%20site&body=Insert%20feedback"
-              target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-sm mt-2" data-i18n="feedback_button">
-              ✉️ Lähetä palautetta
-            </a>
-          </div>
+  <footer class="bg-dark text-light py-4 mt-auto">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <h5 class="mb-2">© <span id="year"></span> Mirka Romppanen</h5>
+          <p data-i18n="info_creator" class="mb-0">
+            Sivun on toteuttanut Mirka Romppanen, RF-asentaja ja tieto- ja tietoliikennetekniikan insinööriopiskelija.
+            Palvelu on luotu opinnolliseen ja harrastekäyttöön.
+          </p>
         </div>
-
-        <!-- Lisenssi -->
-        <div class="row mt-3">
-          <div class="col-12 text-center">
-            <p class="mb-0" data-i18n="footer_license">
-              Taajuustiedot:
-              <a href="https://tieto.traficom.fi/fi/tietotraficom/avoin-data?toggle=Taajuudet" class="text-light" target="_blank" rel="noopener noreferrer">Liikenne- ja viestintävirasto Traficom</a>,
-              lisenssi
-              <a href="https://creativecommons.org/licenses/by/4.0/deed.fi" class="text-light" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.
-            </p>
-          </div>
+        <div class="col-md-6 text-md-end text-start">
+          <h5 data-i18n="contact">Yhteystiedot</h5>
+          <p class="mb-1">
+            🔗 <a href="https://www.linkedin.com/in/mirka-romppanen/" class="text-light" target="_blank" rel="noopener noreferrer">LinkedIn / Mirka Romppanen</a><br>
+            💼 <a href="https://github.com/MiQettin" class="text-light" target="_blank" rel="noopener noreferrer">GitHub.com/MiQettin</a>
+          </p>
+          <a href="https://github.com/MiQettin/Traficom_frequencytable/issues/new?title=Feedback%20from%20site&body=Insert%20feedback"
+            target="_blank" rel="noopener noreferrer" class="btn btn-outline-light btn-sm mt-2" data-i18n="feedback_button">
+            ✉️ Lähetä palautetta
+          </a>
         </div>
       </div>
-    </footer>
 
-  </div>
+      <div class="row mt-3">
+        <div class="col-12 text-center">
+          <p class="mb-0" data-i18n="footer_license">
+            Taajuustiedot:
+            <a href="https://tieto.traficom.fi/fi/tietotraficom/avoin-data?toggle=Taajuudet" class="text-light" target="_blank" rel="noopener noreferrer">Liikenne- ja viestintävirasto Traficom</a>,
+            lisenssi
+            <a href="https://creativecommons.org/licenses/by/4.0/deed.fi" class="text-light" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

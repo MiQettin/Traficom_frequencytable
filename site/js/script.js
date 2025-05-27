@@ -1,11 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
   const DATA_URL = "data/taajuudet.json";
   const tableBody = document.getElementById("table-body");
+  const cardView = document.getElementById("card-view");
   const statusMessage = document.getElementById("status-message");
   const unitSelect = document.getElementById("unit");
   const searchInput = document.getElementById("search");
   const searchButton = document.getElementById("search-button");
   const resetButton = document.getElementById("reset-button");
+  const searchForm = document.getElementById("search-form");
   let originalData = [];
 
   fetch(DATA_URL)
@@ -13,6 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(json => {
       originalData = json.value;
       renderTable(originalData);
+      renderCards(originalData);
       statusMessage.textContent = window.translations?.status_success || "Datan haku onnistui!";
       statusMessage.style.color = "red";
     })
@@ -84,6 +87,32 @@ document.addEventListener("DOMContentLoaded", () => {
     tableBody.innerHTML = html;
   }
 
+  function renderCards(data) {
+    if (!cardView) return;
+    cardView.innerHTML = data.map(item => {
+      return `
+        <div class="card">
+          <div class="card-header">
+            ${item.Frequency_band_lower_limit} – ${item.Frequency_band_upper_limit}
+          </div>
+          <div class="card-body">
+            <p><strong>Käyttö Suomessa:</strong> ${item.Services_in_Finland || "-"}</p>
+            <p><strong>Alikaista:</strong> ${item.Sub_band_lower_limit} – ${item.Sub_band_upper_limit} (${item.Sub_band_width || "-"})</p>
+            <p><strong>Käyttö:</strong> ${item.Sub_band_usage || "-"}</p>
+            <p><strong>Liikennemuoto:</strong> ${[
+              item.Mode_of_traffic,
+              item.Class_of_station,
+              item.Direction,
+              item.Transmitter_power ? `${item.Transmitter_power} W` : "",
+              item.Bandwidth || "",
+            ].filter(Boolean).join(" ")}</p>
+            <p><strong>Huomautukset:</strong> ${item.Comment || "-"}</p>
+          </div>
+        </div>
+      `;
+    }).join("");
+  }
+
   function filterTable() {
     const query = searchInput.value.trim();
     const selectedUnit = unitSelect.value;
@@ -117,17 +146,25 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     renderTable(filtered);
+    renderCards(filtered);
   }
 
   function resetTable() {
     searchInput.value = "";
     renderTable(originalData);
+    renderCards(originalData);
   }
 
   searchButton.addEventListener("click", filterTable);
   resetButton.addEventListener("click", resetTable);
 
-  // ===== Info-nappulan toiminnallisuus =====
+  if (searchForm) {
+    searchForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      filterTable();
+    });
+  }
+
   const toggleButton = document.getElementById("info-toggle");
   const infoContent = document.getElementById("info-content");
 
