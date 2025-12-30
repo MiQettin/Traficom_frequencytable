@@ -167,7 +167,33 @@ footer a:hover {
   }
 
   main {
-    padding: 1rem;
+    padding: 0.75rem;
+  }
+
+  .card-container {
+    padding: 0.15rem;
+    max-height: 62vh;
+    gap: 0.4rem;
+  }
+
+  .freq-box {
+    font-size: 0.9rem;
+  }
+
+  .freq-box-header {
+    padding: 0.65rem 0.75rem;
+  }
+
+  .freq-box-band {
+    font-size: 0.9rem;
+  }
+
+  .freq-box-service {
+    font-size: 0.75rem;
+  }
+
+  .freq-box-details {
+    padding: 0.6rem 0.75rem;
   }
 
   .table-wrapper {
@@ -214,4 +240,71 @@ footer a:hover {
     padding-left: 4rem;
     padding-right: 4rem;
   }
+}
+
+/* ===== Mobile Accordion View (Bootstrap) ===== */
+.card-container {
+  max-height: 65vh;
+  overflow-y: auto;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.accordion-button:not(.collapsed) {
+  background: linear-gradient(135deg, #6c4aaa 0%, #563f80 100%) !important;
+  color: #ffffff !important;
+}
+
+.accordion-button:focus {
+  border-color: #d1c4f1;
+  box-shadow: 0 0 0 0.2rem rgba(94, 59, 153, 0.25);
+}
+
+.accordion-button::after {
+  filter: brightness(0) invert(1);
+}
+
+.accordion-item {
+  background-color: transparent;
+  border-left: 3px solid #5e3b99 !important;
+}
+
+.accordion-body table th {
+  width: 40%;
+  font-weight: 600;
+  padding: 0.4rem 0.5rem;
+}
+
+.accordion-body table td {
+  width: 60%;
+  padding: 0.4rem 0.5rem;
+  word-break: break-word;
+}
+
+
+/* ===== WCAG 2.1 Focus styles ===== */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+.nav-link:focus,
+.dropdown-item:focus {
+  outline: 3px solid #d1c4f1;
+  outline-offset: 2px;
+}
+
+/* Skip link for keyboard users */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #5e3b99;
+  color: #ffffff;
+  padding: 8px 16px;
+  z-index: 1000;
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 0;
 }

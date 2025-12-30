@@ -37,5 +37,19 @@
   "info_creator": "Sivun on toteuttanut Mirka Romppanen, RF-asentaja ja tieto- ja tietoliikennetekniikan insinööriopiskelija. Palvelu on luotu opinnolliseen ja harrastekäyttöön",
   "contact": "Yhteystiedot:",
   "footer_license": "Taajuustiedot: Liikenne- ja viestintävirasto Traficom, lisenssi CC BY 4.0.",
-  "feedback_button": "✉️ Lähetä palautetta"
+  "feedback_button": "✉️ Lähetä palautetta",
+
+  "search_label": "Taajuushaku",
+  "unit_label": "Yksikkö",
+  "search_help": "Syötä taajuusarvo ja valitse yksikkö",
+  "skip_to_content": "Siirry sisältöön",
+  "data_updated": "Päivitetty",
+
+  "card_band": "Taajuusalue",
+  "card_service": "Käyttö",
+  "card_subband": "Alikaista",
+  "card_traffic": "Liikennemuoto",
+  "card_note": "Huomautukset",
+  "show_details": "Näytä tiedot",
+  "hide_details": "Piilota tiedot"
 }

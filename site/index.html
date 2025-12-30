@@ -13,6 +13,8 @@
   <script defer src="js/script.js"></script>
 </head>
 <body>
+  <!-- Skip link for keyboard navigation (WCAG 2.1) -->
+  <a href="#main-content" class="skip-link" data-i18n="skip_to_content">Siirry sisältöön</a>
   
  <!-- Main content wrapperi, bootrapilla 100 + erilliset asetukset viewportille, jottei levii-->
   <div id="wrapper">
@@ -49,7 +51,7 @@
       </div>
     </nav>
     <!-- Main -->
-    <main class="container-fluid mt-2 mb-3"> <!-- fluidin avulla annetaan koko näyttö käyttöön, tehdään width rajoitukset muualla!-->
+    <main id="main-content" class="container-fluid mt-2 mb-3"> <!-- fluidin avulla annetaan koko näyttö käyttöön, tehdään width rajoitukset muualla!-->
       <div class="info-toggle-wrapper mb-4">
         <div id="info-content" class="hide_mobile">
           <section class="welcome-section bg-dark bg-opacity-85 text-light p-4 rounded">
@@ -66,31 +68,38 @@
           <span data-i18n="info_button_hide">Piilota lisätiedot</span>
         </button>
       </div>
-        <div class="controls mb-3 w-100"> <!-- Haku -->
+        <div class="controls mb-3 w-100" role="search" aria-label="Frequency search"> <!-- Haku -->
           <div class="d-flex flex-wrap align-items-center gap-2">
-            <input type="text" id="search" class="form-control" placeholder="Hae..." style="max-width: 200px;" maxlength="6" inputmode="numeric" pattern="[0-9]*">
-            <select id="unit" class="form-select" style="max-width: 90px;">
+            <label for="search" class="visually-hidden" data-i18n="search_label">Taajuushaku</label>
+            <input type="text" id="search" class="form-control" placeholder="Hae..." style="max-width: 200px;" maxlength="6" inputmode="numeric" pattern="[0-9]*" aria-describedby="search-help">
+            <label for="unit" class="visually-hidden" data-i18n="unit_label">Yksikkö</label>
+            <select id="unit" class="form-select" style="max-width: 90px;" aria-label="Frequency unit">
               <option value="kHz">kHz</option>
               <option value="MHz">MHz</option>
               <option value="GHz">GHz</option>
             </select>
-            <button data-i18n="search-button" id="search-button" class="btn btn-primary">Hae</button>
-            <button data-i18n="reset-button" id="reset-button" class="btn btn-secondary">Tyhjennä</button>
+            <button data-i18n="search-button" id="search-button" class="btn btn-primary" type="button">Hae</button>
+            <button data-i18n="reset-button" id="reset-button" class="btn btn-secondary" type="button">Tyhjennä</button>
           <div class="d-flex align-items-center flex-wrap gap-2">
-            <p id="status-message" class="bg-dark bg-opacity-60 rounded px-2 py-1 mb-0">Ladataan dataa...</p>
+            <p id="status-message" class="bg-dark bg-opacity-60 rounded px-2 py-1 mb-0" role="status" aria-live="polite">Ladataan dataa...</p>
             <p id="data-timestamp" class="bg-dark bg-opacity-60 rounded px-2 py-1 mb-0 text-light small fst-italic"></p>
           </div>
           </div>
+          <span id="search-help" class="visually-hidden" data-i18n="search_help">Syötä taajuusarvo ja valitse yksikkö</span>
         </div>
 
-        <div class="table-wrapper">  <!-- Taulukko -->
-          <table class="table table-bordered">
+        <!-- Mobile card view -->
+        <div id="card-container" class="card-container d-md-none" role="list" aria-label="Frequency allocations"></div>
+
+        <!-- Desktop table view -->
+        <div class="table-wrapper d-none d-md-block">  <!-- Taulukko -->
+          <table class="table table-bordered" role="table" aria-label="Frequency allocation table">
             <thead>
               <tr>
-                <th data-i18n="table_col1" class="w-25">Taajuusalue<br>Käyttö Suomessa</th>
-                <th data-i18n="table_col2" class="w-25">Alikaista (leveys)<br>Käyttö</th>
-                <th data-i18n="table_col3" class="w-25">Liikennemuoto / Lähetetiedot</th>
-                <th data-i18n="table_col4" class="w-25">Huomautukset</th>
+                <th data-i18n="table_col1" class="w-25" scope="col">Taajuusalue<br>Käyttö Suomessa</th>
+                <th data-i18n="table_col2" class="w-25" scope="col">Alikaista (leveys)<br>Käyttö</th>
+                <th data-i18n="table_col3" class="w-25" scope="col">Liikennemuoto / Lähetetiedot</th>
+                <th data-i18n="table_col4" class="w-25" scope="col">Huomautukset</th>
               </tr>
             </thead>
             <tbody id="table-body"></tbody>

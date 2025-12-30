@@ -37,5 +37,19 @@
   "info_creator": "This page was created by Mirka Romppanen, RF technician and ICT engineering student. The service was built for educational and hobby use.",
   "contact": "Contact:",
   "footer_license": "Frequency data: Finnish Transport and Communications Agency Traficom, licensed under CC BY 4.0.",
-  "feedback_button": "✉️ Send feedback"
+  "feedback_button": "✉️ Send feedback",
+
+  "search_label": "Frequency search",
+  "unit_label": "Unit",
+  "search_help": "Enter a frequency value and select the unit",
+  "skip_to_content": "Skip to content",
+  "data_updated": "Updated",
+
+  "card_band": "Frequency band",
+  "card_service": "Usage",
+  "card_subband": "Sub-band",
+  "card_traffic": "Traffic mode",
+  "card_note": "Remarks",
+  "show_details": "Show details",
+  "hide_details": "Hide details"
 }
