@@ -207,13 +207,13 @@ document.addEventListener("DOMContentLoaded", () => {
               <div class="accordion-body bg-light">
                 <table class="table table-sm table-borderless mb-0">
                   <tbody>
-                    <tr><th class="text-muted small">${labelBand}:</th><td>${bandKey}</td></tr>
-                    <tr><th class="text-muted small">${labelService}:</th><td>${service}</td></tr>
-                    <tr><th class="text-muted small">${labelSubband}:</th><td>${subband}</td></tr>
-                    <tr><th class="text-muted small">${labelWidth}:</th><td>${width}</td></tr>
-                    <tr><th class="text-muted small">${labelUsage}:</th><td>${usage}</td></tr>
-                    <tr><th class="text-muted small">${labelTraffic}:</th><td>${traffic}</td></tr>
-                    <tr><th class="text-muted small">${labelNote}:</th><td>${note}</td></tr>
+                    <tr><th class="text-white small">${labelBand}:</th><td>${bandKey}</td></tr>
+                    <tr><th class="text-white small">${labelService}:</th><td>${service}</td></tr>
+                    <tr><th class="text-white small">${labelSubband}:</th><td>${subband}</td></tr>
+                    <tr><th class="text-white small">${labelWidth}:</th><td>${width}</td></tr>
+                    <tr><th class="text-white small">${labelUsage}:</th><td>${usage}</td></tr>
+                    <tr><th class="text-white small">${labelTraffic}:</th><td>${traffic}</td></tr>
+                    <tr><th class="text-white small">${labelNote}:</th><td>${note}</td></tr>
                   </tbody>
                 </table>
               </div>
