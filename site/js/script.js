@@ -2,39 +2,65 @@ document.addEventListener("DOMContentLoaded", () => {
   const DATA_URL = "data/taajuudet.json";
   const tableBody = document.getElementById("table-body");
   const cardContainer = document.getElementById("card-container");
-  const statusMessage = document.getElementById("status-message");
   const unitSelect = document.getElementById("unit");
   const searchInput = document.getElementById("search");
   const searchButton = document.getElementById("search-button");
   const resetButton = document.getElementById("reset-button");
   let originalData = [];
 
+  // Helper to show toast notifications
+  function showToast(message, type = 'info', delay = 3000) {
+    const toastContainer = window.innerWidth < 768 
+      ? document.querySelector('.toast-container.translate-middle-x')
+      : document.querySelector('.toast-container.end-0');
+    
+    const toastId = `toast-${Date.now()}`;
+    const iconMap = {
+      'success': { icon: 'check-circle-fill', bgClass: 'text-bg-success' },
+      'danger': { icon: 'exclamation-triangle-fill', bgClass: 'text-bg-danger' },
+      'info': { icon: 'info-fill', bgClass: 'text-bg-info' }
+    };
+    const config = iconMap[type] || iconMap['info'];
+
+    const toastHTML = `
+      <div id="${toastId}" class="toast align-items-center ${config.bgClass} border-0" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+          <div class="toast-body">
+            <svg class="bi me-2" width="16" height="16" role="img"><use xlink:href="#${config.icon}"/></svg>
+            ${message}
+          </div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+      </div>
+    `;
+    
+    toastContainer.insertAdjacentHTML('beforeend', toastHTML);
+    const toastElement = document.getElementById(toastId);
+    const toast = new bootstrap.Toast(toastElement, { 
+      autohide: type !== 'danger',
+      delay: delay 
+    });
+    toast.show();
+    
+    // Remove from DOM after hidden
+    toastElement.addEventListener('hidden.bs.toast', () => {
+      toastElement.remove();
+    });
+  }
+
+  // Show loading toast
+  showToast(window.translations?.status_loading || 'Ladataan dataa...', 'info', 2000);
+
   fetch(DATA_URL)
     .then(response => response.json())
     .then(json => {
       originalData = json.value;
       renderData(originalData);
-      statusMessage.className = "alert alert-success alert-dismissible fade show d-flex align-items-center mb-2";
-      statusMessage.innerHTML = `
-        <svg class="bi flex-shrink-0 me-2" width="20" height="20" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
-        <span>${window.translations?.status_success || "Datan haku onnistui!"}</span>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      `;
-      // Auto-hide success message after 3 seconds
-      setTimeout(() => {
-        const alert = bootstrap.Alert.getOrCreateInstance(statusMessage);
-        alert.close();
-      }, 3000);
+      showToast(window.translations?.status_success || 'Datan haku onnistui!', 'success', 3000);
     })
     .catch(error => {
       console.error("Virhe haettaessa dataa:", error);
-      statusMessage.className = "alert alert-danger alert-dismissible fade show d-flex align-items-center mb-2";
-      statusMessage.innerHTML = `
-        <svg class="bi flex-shrink-0 me-2" width="20" height="20" role="img" aria-label="Error:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-        <span>${window.translations?.status_error || "Datan haku epäonnistui."}</span>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      `;
-      // Error stays visible (user must close manually)
+      showToast(window.translations?.status_error || 'Datan haku epäonnistui.', 'danger', 0);
     });
 
   fetch('data/metadata.json')
@@ -42,15 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(meta => {
       const formatted = new Date(meta.last_updated).toLocaleString('fi-FI');
       const label = window.translations?.data_updated || "Päivitetty";
-      const timestampEl = document.getElementById('data-timestamp');
-      const timestampText = document.getElementById('data-timestamp-text');
-      timestampText.textContent = `${label}: ${formatted}`;
-      timestampEl.style.display = 'block';
-      // Auto-hide timestamp after 5 seconds
-      setTimeout(() => {
-        const alert = bootstrap.Alert.getOrCreateInstance(timestampEl);
-        alert.close();
-      }, 5000);
+      showToast(`${label}: ${formatted}`, 'info', 5000);
   });
 
   // Render both table (desktop) and cards (mobile)
