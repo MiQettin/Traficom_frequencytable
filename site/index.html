@@ -53,7 +53,7 @@
     <!-- Main -->
     <main id="main-content" class="container-fluid mt-2 mb-3"> <!-- fluidin avulla annetaan koko näyttö käyttöön, tehdään width rajoitukset muualla!-->
       <div class="info-toggle-wrapper mb-4">
-        <div id="info-content" class="hide_mobile">
+        <div id="info-content" class="d-none d-md-block">
           <section class="welcome-section bg-dark bg-opacity-85 text-light p-4 rounded">
             <h1 data-i18n="welcome_heading">Tervetuloa taajuusjakotaulukko-palveluun</h1>
             <p class="lead" data-i18n="intro_text">
@@ -64,8 +64,8 @@
             </p>
           </section>
         </div>
-        <button class="btn btn-outline-light border-secondary rounded-pill px-4 py-2 fw-semibold" id="info-toggle" data-i18n="info_button_hide">
-          <span data-i18n="info_button_hide">Piilota lisätiedot</span>
+        <button class="btn btn-outline-light border-secondary rounded-pill px-4 py-2 fw-semibold" id="info-toggle" data-i18n="info_button">
+          <span data-i18n="info_button">Näytä lisätiedot</span>
         </button>
       </div>
         <div class="controls mb-3 w-100" role="search" aria-label="Frequency search"> <!-- Haku -->
@@ -80,12 +80,19 @@
             </select>
             <button data-i18n="search-button" id="search-button" class="btn btn-primary" type="button">Hae</button>
             <button data-i18n="reset-button" id="reset-button" class="btn btn-secondary" type="button">Tyhjennä</button>
-          <div class="d-flex align-items-center flex-wrap gap-2">
-            <p id="status-message" class="bg-dark bg-opacity-60 rounded px-2 py-1 mb-0" role="status" aria-live="polite">Ladataan dataa...</p>
-            <p id="data-timestamp" class="bg-dark bg-opacity-60 rounded px-2 py-1 mb-0 text-light small fst-italic"></p>
-          </div>
           </div>
           <span id="search-help" class="visually-hidden" data-i18n="search_help">Syötä taajuusarvo ja valitse yksikkö</span>
+        </div>
+
+        <!-- Status alerts -->
+        <div class="alert alert-info alert-dismissible fade show d-flex align-items-center mb-2" role="alert" id="status-message">
+          <div class="spinner-border spinner-border-sm me-2" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <span>Ladataan dataa...</span>
+        </div>
+        <div class="alert alert-secondary alert-dismissible fade show small mb-3" role="status" id="data-timestamp" style="display: none;">
+          <span id="data-timestamp-text"></span>
         </div>
 
         <!-- Mobile card view -->
@@ -163,6 +170,16 @@
     </footer>
 
   </div>
+
+  <!-- Bootstrap Icons for alerts -->
+  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+    </symbol>
+    <symbol id="exclamation-triangle-fill" fill="currentColor" viewBox="0 0 16 16">
+      <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+    </symbol>
+  </svg>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

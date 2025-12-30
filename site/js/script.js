@@ -14,21 +14,43 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(json => {
       originalData = json.value;
       renderData(originalData);
-      statusMessage.textContent = window.translations?.status_success || "Datan haku onnistui!";
-      statusMessage.classList.add("text-success");
+      statusMessage.className = "alert alert-success alert-dismissible fade show d-flex align-items-center mb-2";
+      statusMessage.innerHTML = `
+        <svg class="bi flex-shrink-0 me-2" width="20" height="20" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+        <span>${window.translations?.status_success || "Datan haku onnistui!"}</span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      `;
+      // Auto-hide success message after 3 seconds
+      setTimeout(() => {
+        const alert = bootstrap.Alert.getOrCreateInstance(statusMessage);
+        alert.close();
+      }, 3000);
     })
     .catch(error => {
       console.error("Virhe haettaessa dataa:", error);
-      statusMessage.textContent = window.translations?.status_error || "Datan haku epäonnistui.";
-      statusMessage.classList.add("text-danger");
+      statusMessage.className = "alert alert-danger alert-dismissible fade show d-flex align-items-center mb-2";
+      statusMessage.innerHTML = `
+        <svg class="bi flex-shrink-0 me-2" width="20" height="20" role="img" aria-label="Error:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+        <span>${window.translations?.status_error || "Datan haku epäonnistui."}</span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      `;
+      // Error stays visible (user must close manually)
     });
 
   fetch('data/metadata.json')
     .then(res => res.json())
     .then(meta => {
       const formatted = new Date(meta.last_updated).toLocaleString('fi-FI');
-      const label = window.translations?.data_updated || "Updated";
-      document.getElementById('data-timestamp').textContent = `${label}: ${formatted}`;
+      const label = window.translations?.data_updated || "Päivitetty";
+      const timestampEl = document.getElementById('data-timestamp');
+      const timestampText = document.getElementById('data-timestamp-text');
+      timestampText.textContent = `${label}: ${formatted}`;
+      timestampEl.style.display = 'block';
+      // Auto-hide timestamp after 5 seconds
+      setTimeout(() => {
+        const alert = bootstrap.Alert.getOrCreateInstance(timestampEl);
+        alert.close();
+      }, 5000);
   });
 
   // Render both table (desktop) and cards (mobile)
@@ -222,11 +244,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (toggleButton && infoContent) {
     toggleButton.addEventListener("click", () => {
-      infoContent.classList.toggle("d-none");
-      const isVisible = !infoContent.classList.contains("d-none");
-      toggleButton.textContent = isVisible
-        ? window.translations?.info_button_hide || "Piilota lisätiedot"
-        : window.translations?.info_button || "Näytä lisätiedot";
+      // Toggle both d-none and d-md-block to work correctly on all screen sizes
+      if (infoContent.classList.contains("d-none")) {
+        infoContent.classList.remove("d-none");
+        infoContent.classList.add("d-block");
+        toggleButton.textContent = window.translations?.info_button_hide || "Piilota lisätiedot";
+      } else {
+        infoContent.classList.remove("d-block");
+        infoContent.classList.add("d-none");
+        toggleButton.textContent = window.translations?.info_button || "Näytä lisätiedot";
+      }
     });
   }
 });
