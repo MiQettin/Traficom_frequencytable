@@ -6,7 +6,65 @@ document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("search");
   const searchButton = document.getElementById("search-button");
   const resetButton = document.getElementById("reset-button");
+  const searchError = document.getElementById("search-error");
   let originalData = [];
+
+  // Validate frequency input format
+  function validateFrequencyInput(value) {
+    if (!value || value.trim() === '') {
+      return { valid: true, normalized: '' };
+    }
+
+    // Normalize decimal separator: replace comma with dot
+    const normalized = value.replace(',', '.');
+    
+    // Check if it contains digits or decimal separators (numeric attempt)
+    const isNumericAttempt = /[\d.,]/.test(value);
+    
+    if (!isNumericAttempt) {
+      // Text search - always valid
+      return { valid: true, normalized: value };
+    }
+    
+    // Validate numeric format: optional leading digits, optional decimal with up to 3 digits
+    // Allows: 123, 123.4, 123.45, 123.456, .5, 0.5
+    const decimalRegex = /^\d*\.?\d{1,3}$|^\d+$/;
+    
+    const parsedNumber = parseFloat(normalized);
+    const isValid = !isNaN(parsedNumber) && decimalRegex.test(normalized) && parsedNumber >= 0;
+    
+    return { valid: isValid, normalized };
+  }
+
+  // Show/hide validation feedback
+  function setInputValidation(isValid) {
+    if (isValid) {
+      searchInput.classList.remove('is-invalid');
+      searchError.style.display = 'none';
+    } else {
+      searchInput.classList.add('is-invalid');
+      searchError.style.display = 'block';
+    }
+  }
+
+  // Real-time validation on input
+  searchInput.addEventListener('input', () => {
+    const value = searchInput.value.trim();
+    const validation = validateFrequencyInput(value);
+    
+    // Only show error for invalid numeric attempts, not for text searches
+    const isNumericAttempt = /[\d.,]/.test(value);
+    if (isNumericAttempt && !validation.valid) {
+      setInputValidation(false);
+    } else {
+      setInputValidation(true);
+      // Clear any persistent error alerts
+      const errorContainer = document.getElementById('error-alert-container');
+      if (errorContainer) {
+        errorContainer.innerHTML = '';
+      }
+    }
+  });
 
   // Helper to show toast notifications
   function showToast(message, type = 'info', delay = 3000) {
@@ -229,8 +287,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function filterTable() {
     const query = searchInput.value.trim();
+    const validation = validateFrequencyInput(query);
+    
+    // If invalid, show error and don't filter
+    if (!validation.valid) {
+      setInputValidation(false);
+      return;
+    }
+    
+    // Clear validation state
+    setInputValidation(true);
+    const errorContainer = document.getElementById('error-alert-container');
+    errorContainer.innerHTML = '';
+
     const selectedUnit = unitSelect.value;
-    const queryNumber = parseFloat(query);
+    const normalizedQuery = validation.normalized;
+    const queryNumber = parseFloat(normalizedQuery);
+    
     const queryHz = selectedUnit && !isNaN(queryNumber)
       ? (() => {
           switch (selectedUnit) {
@@ -264,6 +337,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function resetTable() {
     searchInput.value = "";
+    setInputValidation(true);
+    const errorContainer = document.getElementById('error-alert-container');
+    errorContainer.innerHTML = '';
     renderData(originalData);
   }
 

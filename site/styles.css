@@ -81,6 +81,17 @@ main {
   flex: 1;
 }
 
+/* Input validation feedback */
+.invalid-feedback {
+  background-color: rgba(40, 35, 50, 0.95);
+  color: #ff6b6b;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  border-left: 3px solid #dc3545;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
 /* ===== Info-toggle-nappi ===== */
 /* Desktop: info section always visible */
 /* Mobile: collapsible compact link */

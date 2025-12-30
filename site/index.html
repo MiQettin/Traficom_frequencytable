@@ -84,7 +84,10 @@
         <div class="controls mb-3 w-100" role="search" aria-label="Frequency search"> <!-- Haku -->
           <div class="d-flex flex-wrap flex-md-nowrap align-items-center gap-2">
             <label for="search" class="visually-hidden" data-i18n="search_label">Taajuushaku</label>
-            <input type="text" id="search" class="form-control" placeholder="Hae..." style="max-width: 200px;" maxlength="6" inputmode="numeric" pattern="[0-9]*" aria-describedby="search-help">
+            <input type="text" id="search" class="form-control" placeholder="Hae..." style="max-width: 200px;" maxlength="15" inputmode="decimal" aria-describedby="search-help search-error">
+            <div id="search-error" class="invalid-feedback" style="max-width: 200px; display: none;">
+              <span data-i18n="error_invalid_format">Virheellinen muoto. Käytä numeroita ja enintään 3 desimaalia (esim. 123.456 tai 123,456).</span>
+            </div>
             <label for="unit" class="visually-hidden" data-i18n="unit_label">Yksikkö</label>
             <select id="unit" class="form-select" style="max-width: 90px;" aria-label="Frequency unit">
               <option value="kHz">kHz</option>

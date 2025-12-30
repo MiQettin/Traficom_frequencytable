@@ -23,6 +23,7 @@
   "status_loading": "Ladataan dataa...",
   "status_success": "Datan haku onnistui!",
   "status_error": "Datan haku epäonnistui.",
+  "error_invalid_format": "Virheellinen muoto. Käytä numeroita ja enintään 3 desimaalia (esim. 123.456 tai 123,456).",
 
   "table_col1": "Taajuusalue ja käyttö Suomessa",
   "table_col2": "Alikaista (leveys) ja käyttö",

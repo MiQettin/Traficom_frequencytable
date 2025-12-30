@@ -23,6 +23,7 @@
   "status_loading": "Loading data...",
   "status_success": "Data loaded successfully!",
   "status_error": "Failed to load data.",
+  "error_invalid_format": "Invalid format. Use numbers with up to 3 decimal places (e.g. 123.456 or 123,456).",
 
   "table_col1": "Frequency band and use in Finland",
   "table_col2": "Sub-bands (width) and use",
