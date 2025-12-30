@@ -346,6 +346,14 @@ document.addEventListener("DOMContentLoaded", () => {
   searchButton.addEventListener("click", filterTable);
   resetButton.addEventListener("click", resetTable);
 
+  // Enable search on Enter key press in search input
+  searchInput.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      filterTable();
+    }
+  });
+
   // ===== Info-nappulan toiminnallisuus =====
   const toggleButton = document.getElementById("info-toggle");
   const infoContent = document.getElementById("info-content");
