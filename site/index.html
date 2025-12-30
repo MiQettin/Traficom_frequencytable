@@ -13,9 +13,7 @@
   <script defer src="js/script.js"></script>
 </head>
 <body>
-  <!-- Skip link for keyboard navigation (WCAG 2.1) -->
-  <a href="#main-content" class="skip-link" data-i18n="skip_to_content">Siirry sisältöön</a>
-  
+
  <!-- Main content wrapperi, bootrapilla 100 + erilliset asetukset viewportille, jottei levii-->
   <div id="wrapper">
     <!-- Sticky Navigation -->
@@ -84,9 +82,12 @@
           <span id="search-help" class="visually-hidden" data-i18n="search_help">Syötä taajuusarvo ja valitse yksikkö</span>
         </div>
 
-        <!-- Toast container for notifications (top-right on desktop, top-center on mobile) -->
+        <!-- Error alert container (below search controls) -->
+        <div id="error-alert-container"></div>
+
+        <!-- Toast container for notifications (top-right on desktop, bottom-center on mobile) -->
         <div class="toast-container position-fixed top-0 end-0 p-3 d-none d-md-block" style="z-index: 1080;"></div>
-        <div class="toast-container position-fixed top-0 start-50 translate-middle-x p-3 d-md-none" style="z-index: 1080;"></div>
+        <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3 d-md-none" style="z-index: 1080;"></div>
 
         <!-- Mobile card view -->
         <div id="card-container" class="card-container d-md-none" role="list" aria-label="Frequency allocations"></div>

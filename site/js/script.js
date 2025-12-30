@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const toastId = `toast-${Date.now()}`;
     const iconMap = {
       'success': { icon: 'check-circle-fill', bgClass: 'text-bg-success' },
-      'danger': { icon: 'exclamation-triangle-fill', bgClass: 'text-bg-danger' },
       'info': { icon: 'info-fill', bgClass: 'text-bg-info' }
     };
     const config = iconMap[type] || iconMap['info'];
@@ -37,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
     toastContainer.insertAdjacentHTML('beforeend', toastHTML);
     const toastElement = document.getElementById(toastId);
     const toast = new bootstrap.Toast(toastElement, { 
-      autohide: type !== 'danger',
+      autohide: true,
       delay: delay 
     });
     toast.show();
@@ -46,6 +45,21 @@ document.addEventListener("DOMContentLoaded", () => {
     toastElement.addEventListener('hidden.bs.toast', () => {
       toastElement.remove();
     });
+  }
+
+  // Helper to show error alert below search controls
+  function showErrorAlert(message) {
+    const errorContainer = document.getElementById('error-alert-container');
+    const alertHTML = `
+      <div class="alert alert-danger alert-dismissible fade show d-flex align-items-center mb-3" role="alert">
+        <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Error:">
+          <use xlink:href="#exclamation-triangle-fill"/>
+        </svg>
+        <div>${message}</div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+    `;
+    errorContainer.innerHTML = alertHTML;
   }
 
   // Show loading toast
@@ -60,7 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
     })
     .catch(error => {
       console.error("Virhe haettaessa dataa:", error);
-      showToast(window.translations?.status_error || 'Datan haku epäonnistui.', 'danger', 0);
+      showErrorAlert(window.translations?.status_error || 'Datan haku epäonnistui.');
     });
 
   fetch('data/metadata.json')

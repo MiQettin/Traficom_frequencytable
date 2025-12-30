@@ -265,8 +265,12 @@ footer a:hover {
 }
 
 .accordion-item {
-  background-color: transparent;
+  background-color: rgba(94, 59, 153, 0.50);
   border-left: 3px solid #5e3b99 !important;
+}
+
+.accordion-body {
+  background-color: rgba(248, 249, 250, 0.50;
 }
 
 .accordion-body table th {
